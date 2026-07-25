@@ -2,11 +2,12 @@
 /* CSV-driven carousel generator.
  *
  *   content/posts.csv  ->  templates/*.html  ->  .tmp/rendered/*.html
- *                      ->  Playwright Chromium  ->  output/YYYY-MM/post-id/slide-NN.png
+ *                      ->  Playwright Chromium  ->  public/social/YYYY-MM/post-id/slide-NN.png
  *
  * Usage:
- *   node scripts/generate.js             render PNGs
- *   node scripts/generate.js --preview   write rendered HTML only, skip Chromium
+ *   node scripts/generate.js                 render PNGs
+ *   node scripts/generate.js --preview       write rendered HTML only, skip Chromium
+ *   node scripts/generate.js --post <id>     render a single post_id only
  */
 
 'use strict';
@@ -22,7 +23,7 @@ const CTA_PATH = path.join(ROOT, 'content', 'cta-library.json');
 const TEMPLATE_DIR = path.join(ROOT, 'templates');
 const ILLUSTRATION_DIR = path.join(ROOT, 'assets', 'illustrations');
 const RENDER_DIR = path.join(ROOT, '.tmp', 'rendered');
-const OUTPUT_DIR = path.join(ROOT, 'output');
+const OUTPUT_DIR = path.join(ROOT, 'public', 'social');
 
 const WIDTH = 1080;
 const HEIGHT = 1350;
@@ -30,6 +31,10 @@ const HEIGHT = 1350;
 const BACKGROUNDS = ['bg-paper', 'bg-cream', 'bg-ink', 'bg-charcoal', 'bg-gray', 'bg-red'];
 
 const PREVIEW = process.argv.includes('--preview');
+const POST_FILTER = (() => {
+  const i = process.argv.indexOf('--post');
+  return i !== -1 ? process.argv[i + 1] : null;
+})();
 
 function fail(message) {
   console.error(`\nERROR: ${message}\n`);
@@ -68,6 +73,12 @@ function pad2(n) {
   return String(n).padStart(2, '0');
 }
 
+// A bare filename lives in assets/illustrations/; a value with a slash
+// (e.g. assets/photos/portrait.png) is resolved from the repo root.
+function resolveImage(value) {
+  return value.includes('/') ? path.join(ROOT, value) : path.join(ILLUSTRATION_DIR, value);
+}
+
 /* ------------------------------------------------------------- load input */
 
 function loadRows() {
@@ -77,6 +88,8 @@ function loadRows() {
     skip_empty_lines: true,
     trim: true,
     bom: true,
+    // Older rows may predate optional trailing columns (middle_subheading).
+    relax_column_count_less: true,
   });
   if (!rows.length) fail(`No rows found in ${CSV_PATH}`);
   return rows;
@@ -152,7 +165,7 @@ function validateCarousel(postId, rows, ctaLibrary) {
            `Use one of: ${BACKGROUNDS.join(', ')}.`);
     }
     if (row.middle_illustration) {
-      const file = path.join(ILLUSTRATION_DIR, row.middle_illustration);
+      const file = resolveImage(row.middle_illustration);
       if (!fs.existsSync(file)) {
         fail(`${slideWhere}: illustration "${row.middle_illustration}" not found. Expected file: ${file}`);
       }
@@ -166,51 +179,75 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
   const first = rows[0];
   const slides = [];
 
+  // cover_subtitle may still exist in the CSV as a legacy column; it is
+  // deliberately never rendered.
   slides.push({
     name: 'cover',
+    template: 'cover',
     html: fillTemplate(templates.cover, {
       BACKGROUND: first.cover_background,
       TITLE: escapeHtml(toMultiline(first.cover_title)),
-      SUBTITLE: escapeHtml(toMultiline(first.cover_subtitle || '')),
     }),
-    checks: ['.display', '.subtitle'],
+    checks: ['.wordmark', '.display'],
   });
 
   const middles = [...rows].sort((a, b) => Number(a.slide_number) - Number(b.slide_number));
   for (const row of middles) {
     const src = row.middle_illustration
-      ? pathToFileURL(path.join(ILLUSTRATION_DIR, row.middle_illustration)).href
+      ? pathToFileURL(resolveImage(row.middle_illustration)).href
       : '';
+    // slide_number is an internal ordering field only; it is never rendered.
     slides.push({
-      name: `middle ${row.slide_number}`,
+      name: `middle (order ${row.slide_number})`,
+      template: 'middle',
       html: fillTemplate(templates.middle, {
         BACKGROUND: row.middle_background,
-        SLIDE_NUMBER: pad2(Number(row.slide_number)),
         HEADING: escapeHtml(toMultiline(row.middle_heading)),
+        SUBHEADING: escapeHtml(toMultiline(row.middle_subheading || '')),
         BODY: escapeHtml(toMultiline(row.middle_body)),
         ILLUSTRATION_SRC: escapeHtml(src),
         ILLUSTRATION_ALT: escapeHtml(row.middle_alt || ''),
       }),
-      checks: ['.eyebrow', '.title', '.body', '.illustration'],
+      checks: ['.title', '.rule.r-top', '.subheading', '.body', '.illustration'],
+      // The image must start at least 36px below the last line of text.
+      minGapBelowText: '.illustration',
     });
   }
 
   const cta = ctaLibrary[first.cta_key];
+  const closingHtml = fillTemplate(templates.closing, {
+    BACKGROUND: first.closing_background,
+    CTA_KEY: escapeHtml(first.cta_key),
+    CTA_HEADING: escapeHtml(cta.heading),
+    CTA_SUBHEADING: escapeHtml(cta.subheading),
+  });
+  assertCatUnchanged(templates.closing, closingHtml, postId);
   slides.push({
     name: 'closing',
-    html: fillTemplate(templates.closing, {
-      BACKGROUND: first.closing_background,
-      CTA_KEY: escapeHtml(first.cta_key),
-      CTA_HEADING: escapeHtml(cta.heading),
-      CTA_SUBHEADING: escapeHtml(cta.subheading),
-    }),
-    checks: ['.headline', '.subheading', '.phone', '.email'],
+    template: 'closing',
+    html: closingHtml,
+    checks: ['.headline', '.subheading', '.phone', '.email', '.web', '.cat'],
   });
 
   return slides;
 }
 
-async function renderSlide(page, htmlFile, checks, label) {
+// The cat is a locked brand asset: whatever background the CSV picks, the
+// generated markup must carry the cat SVG exactly as stored in the template.
+function assertCatUnchanged(templateHtml, generatedHtml, postId) {
+  const catOf = (html) => {
+    const match = html.match(/<svg class="cat"[\s\S]*?<\/svg>/);
+    return match ? match[0] : null;
+  };
+  const original = catOf(templateHtml);
+  const generated = catOf(generatedHtml);
+  if (!original || generated !== original) {
+    fail(`post "${postId}": the closing-slide cat asset would be modified during generation. ` +
+         'The cat is locked and must be inserted exactly as stored in templates/closing.html.');
+  }
+}
+
+async function renderSlide(page, htmlFile, job) {
   await page.goto(pathToFileURL(htmlFile).href, { waitUntil: 'load' });
 
   // Freeze animations and transitions before measuring or capturing.
@@ -234,34 +271,100 @@ async function renderSlide(page, htmlFile, checks, label) {
   // The auto-fit script runs on fonts.ready; give it one settled frame.
   await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
 
-  const problems = await page.evaluate((selectors) => {
+  const problems = await page.evaluate(({ selectors, minGapBelowText }) => {
     const slide = document.querySelector('.slide');
     const bounds = slide.getBoundingClientRect();
+    const tol = 2;
     const found = [];
+
+    // Measure every major element. For text, measure the actual rendered
+    // line boxes via a Range: element boxes span the full margin width, so
+    // they would false-positive against elements on the other side of the
+    // slide, and scrollWidth never reports less than the container width.
+    const boxes = [];
     for (const sel of selectors) {
       const el = document.querySelector(sel);
       if (!el || getComputedStyle(el).display === 'none') continue;
-      const r = el.getBoundingClientRect();
-      if (r.width === 0 && r.height === 0) continue;
-      const tolerance = 1;
-      if (r.left < bounds.left - tolerance || r.right > bounds.right + tolerance ||
-          r.top < bounds.top - tolerance || r.bottom > bounds.bottom + tolerance) {
-        found.push(`${sel} extends outside the 1080x1350 slide bounds`);
+      const tag = el.tagName.toLowerCase();
+      const isText = tag !== 'img' && tag !== 'svg' && !el.classList.contains('rule');
+      let r = el.getBoundingClientRect();
+      if (isText) {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        r = range.getBoundingClientRect();
       }
-      // Text may exceed its margin box by a hair when auto-fit clamps at
-      // its minimum size; the slide only clips at its own edge
-      // (overflow:hidden), so measure the rendered extent against that.
-      if (r.left + el.scrollWidth > bounds.right + tolerance) {
-        found.push(`${sel} text is clipped at the right slide edge`);
+      if (r.width === 0 && r.height === 0) continue;
+      boxes.push({ sel, isText, left: r.left, top: r.top, right: r.right, bottom: r.bottom });
+    }
+
+    // 1. Nothing may extend beyond the slide boundary (overflow:hidden
+    //    clips exactly there).
+    for (const b of boxes) {
+      if (b.left < bounds.left - tol || b.right > bounds.right + tol ||
+          b.top < bounds.top - tol || b.bottom > bounds.bottom + tol) {
+        found.push(`overflow: ${b.sel} extends outside the 1080x1350 slide boundary`);
       }
     }
+
+    // 2. No two major elements may overlap.
+    for (let i = 0; i < boxes.length; i++) {
+      for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i], b = boxes[j];
+        const w = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (w > tol && h > tol) {
+          found.push(`collision: ${a.sel} overlaps ${b.sel}`);
+        }
+      }
+    }
+
+    // 3. An image must start at least 36px below the last line of text.
+    if (minGapBelowText) {
+      const img = document.querySelector(minGapBelowText);
+      if (img && getComputedStyle(img).display !== 'none') {
+        const imgTop = img.getBoundingClientRect().top;
+        let lastTextBottom = -Infinity;
+        for (const b of boxes) {
+          if (b.isText && b.bottom <= imgTop + tol) lastTextBottom = Math.max(lastTextBottom, b.bottom);
+        }
+        if (Number.isFinite(lastTextBottom) && imgTop - lastTextBottom < 36 - tol) {
+          found.push(`spacing: ${minGapBelowText} begins ${Math.round(imgTop - lastTextBottom)}px ` +
+                     'below the text; the minimum is 36px');
+        }
+      }
+    }
+
     return found;
-  }, checks);
+  }, { selectors: job.checks, minGapBelowText: job.minGapBelowText || null });
 
   if (problems.length) {
-    fail(`${label}: content is clipped or outside the slide after auto-fit:\n  - ${problems.join('\n  - ')}\n` +
-         'Shorten the copy or add explicit line breaks in the CSV.');
+    fail(`${job.label}: validation failed after fonts and images loaded:\n  - ${problems.join('\n  - ')}\n` +
+         'Shorten the copy, add explicit line breaks in the CSV, or use a smaller image.');
   }
+
+  // Report the final computed type sizes, warning when auto-fit drove an
+  // element to its minimum (a sign the copy needs editing, not more shrink).
+  const sizes = await page.evaluate(() => {
+    const out = [];
+    for (const sel of ['.display', '.title', '.subheading', '.body', '.headline']) {
+      const el = document.querySelector(sel);
+      if (!el || getComputedStyle(el).display === 'none') continue;
+      out.push({ sel, px: Math.round(parseFloat(getComputedStyle(el).fontSize) * 2) / 2 });
+    }
+    return out;
+  });
+  const floors = {
+    cover: { '.display': 72 },
+    middle: { '.title': 48, '.subheading': 36, '.body': 36 },
+    closing: { '.headline': 60, '.subheading': 24 },
+  }[job.template] || {};
+  for (const s of sizes) {
+    if (floors[s.sel] !== undefined && s.px <= floors[s.sel]) {
+      console.warn(`  warning: ${job.label}: ${s.sel} rendered at its ${floors[s.sel]}px minimum — ` +
+                   'the copy may need editing');
+    }
+  }
+  return sizes;
 }
 
 /* -------------------------------------------------------------------- run */
@@ -283,6 +386,16 @@ async function main() {
     validateCarousel(postId, postRows, ctaLibrary);
   }
 
+  if (POST_FILTER) {
+    if (!carousels.has(POST_FILTER)) {
+      fail(`--post "${POST_FILTER}" does not match any post_id in the CSV. ` +
+           `Known posts: ${[...carousels.keys()].join(', ')}.`);
+    }
+    for (const id of [...carousels.keys()]) {
+      if (id !== POST_FILTER) carousels.delete(id);
+    }
+  }
+
   fs.rmSync(RENDER_DIR, { recursive: true, force: true });
   fs.mkdirSync(RENDER_DIR, { recursive: true });
 
@@ -298,8 +411,10 @@ async function main() {
         postId,
         month,
         htmlFile,
+        template: slide.template,
         checks: slide.checks,
-        label: `post "${postId}", ${slide.name} (slide-${pad2(index + 1)}.png)`,
+        minGapBelowText: slide.minGapBelowText,
+        label: `post "${postId}", ${slide.name} [${slide.template} template] (slide-${pad2(index + 1)}.png)`,
         pngFile: path.join(OUTPUT_DIR, month, postId, `slide-${pad2(index + 1)}.png`),
       });
     });
@@ -320,13 +435,14 @@ async function main() {
 
   try {
     for (const job of jobs) {
-      await renderSlide(page, job.htmlFile, job.checks, job.label);
+      const sizes = await renderSlide(page, job.htmlFile, job);
       fs.mkdirSync(path.dirname(job.pngFile), { recursive: true });
       await page.screenshot({
         path: job.pngFile,
         clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT },
       });
-      console.log(`wrote ${path.relative(ROOT, job.pngFile)}`);
+      const typeReport = sizes.map((s) => `${s.sel} ${s.px}px`).join(', ');
+      console.log(`wrote ${path.relative(ROOT, job.pngFile)}  [${typeReport}]`);
     }
   } finally {
     await browser.close();
