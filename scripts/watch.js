@@ -92,12 +92,18 @@ function runGenerate(reason) {
   const args = ['scripts/generate.js', ...(POST ? ['--post', POST] : [])];
   console.log(`${stamp()}  ${reason} -> node ${args.join(' ')}`);
   const child = spawn('node', args, { cwd: ROOT, stdio: 'inherit' });
+  activeChild = child;
   child.on('exit', (code) => {
+    activeChild = null;
     generating = false;
     if (code !== 0) console.log(`${stamp()}  generate exited with ${code} — still watching`);
     if (queued) { queued = false; runGenerate('queued change'); }
   });
 }
+
+// The generator child must die with the watcher, or it keeps writing
+// PNGs after the watcher is gone.
+let activeChild = null;
 
 /* --------------------------------------------------------------- watchers */
 
@@ -135,8 +141,11 @@ watchDir(path.join(ROOT, 'output'), { recursive: true }, (event, rel) => {
 
 console.log(`watch mode ready${POST ? ` (post filter: ${POST})` : ''} — edit HTML and the PNG follows. Ctrl+C to stop.`);
 
-process.on('SIGINT', async () => {
+async function shutdown() {
   console.log('\nstopping watch mode');
+  if (activeChild) activeChild.kill('SIGTERM');
   if (browser) await browser.close().catch(() => {});
   process.exit(0);
-});
+}
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
