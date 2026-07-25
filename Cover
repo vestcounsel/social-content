@@ -17,19 +17,19 @@
     position:relative; width:1080px; height:1350px; overflow:hidden;
     font-family:'Montserrat',system-ui,sans-serif;
     -webkit-font-smoothing:antialiased;
-    background:var(--ink); color:var(--paper);
   }
-  .slide.bg-ink     { background:var(--ink);      color:var(--paper); }
-  .slide.bg-red     { background:var(--red);      color:var(--paper); }
-  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); }
-  .slide.bg-gray    { background:var(--gray);     color:var(--paper); }
-  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   }
-  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   }
+  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   --bg:var(--paper);    --accent:var(--red);   }
+  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   --bg:var(--cream);    --accent:var(--red);   }
+  .slide.bg-ink     { background:var(--ink);      color:var(--paper); --bg:var(--ink);      --accent:var(--paper); }
+  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); --bg:var(--charcoal); --accent:var(--paper); }
+  .slide.bg-gray    { background:var(--gray);     color:var(--paper); --bg:var(--gray);     --accent:var(--paper); }
+  .slide.bg-red     { background:var(--red);      color:var(--paper); --bg:var(--red);      --accent:var(--paper); }
 
+  /* Baseline anchoring. .bl-top pins the first baseline, .bl-bot the last. */
   .bl-top,.bl-bot{
     position:absolute; left:var(--ml); right:var(--ml); margin:0;
     font-size:calc(var(--fs) * 1px); line-height:var(--lh);
-    font-weight:700;
+    font-weight:700; white-space:pre;
   }
   .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
   .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
@@ -39,40 +39,38 @@
   .slide.bg-paper .wordmark,
   .slide.bg-cream .wordmark{ opacity:1; color:var(--gray); }
 
-  /* white-space:pre means a line breaks ONLY where you press return.
-     The script below shrinks the type until the longest line fits. */
-  .display{ --fs:120; --lh:1.35; --bl:1263; letter-spacing:0; white-space:pre; }
+  .display { --fs:120; --lh:1.35; --bl:1263; }
 </style>
 </head>
 <body>
 
 <!-- =======================================================================
-     EDIT HERE. Change the bg- class, change the headline text.
-     Line breaks are literal: press return where you want the line to break.
-     Backgrounds: bg-ink  bg-red  bg-charcoal  bg-gray  bg-paper  bg-cream
+     EDIT HERE.
+     Backgrounds:  bg-paper  bg-cream  bg-ink  bg-charcoal  bg-gray  bg-red
+     Never indent a continuation line. Use &amp;rsquo; for an apostrophe.
      ======================================================================= -->
 
-<div class="slide bg-charcoal">
+<div class="slide bg-ink">
+
   <p class="bl-top wordmark">Vest Counsel</p>
-  <h1 class="bl-bot display">Top Founder Mistakes to Avoid</h1>
+
+  <h1 class="bl-bot display">Lana Del Rey&rsquo;s
+IP Empire</h1>
+
 </div>
 
 <script>
-/* ---------------------------------------------------------------------
-   Auto-fit. Measures the longest line and drops the size until it clears
-   the margins. Never grows past MAX, never shrinks past MIN.
-
-   Set LOCK to a number (e.g. LOCK = 116) to force every headline to one
-   fixed size instead. Use that when you want a whole carousel to hold a
-   single type size no matter what the copy is.
-   --------------------------------------------------------------------- */
-const MAX = 120, MIN = 72, LOCK = null;
+/* Auto-fit: shrinks a line only if it would cross the margin.
+   Set lock to a number to force one fixed size on every slide. */
+const FIT = [
+  { sel:'.display', max:120, min:72, lock:null }
+];
 
 function widestLine(el, fs){
   const cs = getComputedStyle(el);
   const probe = document.createElement('span');
   probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
-    `font:700 ${fs}px Montserrat,sans-serif;letter-spacing:${cs.letterSpacing};`;
+    `font:${cs.fontWeight} ${fs}px Montserrat,sans-serif;`;
   document.body.appendChild(probe);
   let w = 0;
   for (const line of el.textContent.split('\n')){
@@ -84,12 +82,15 @@ function widestLine(el, fs){
 }
 
 document.fonts.ready.then(() => {
-  document.querySelectorAll('.display').forEach(el => {
-    if (LOCK){ el.style.setProperty('--fs', LOCK); return; }
-    const avail = el.clientWidth;                  // 904 at an 88px margin
-    const fs = Math.min(MAX, Math.floor(MAX * avail / widestLine(el, MAX)));
-    el.style.setProperty('--fs', Math.max(MIN, fs));
-  });
+  for (const role of FIT){
+    document.querySelectorAll(role.sel).forEach(el => {
+      if (role.lock){ el.style.setProperty('--fs', role.lock); return; }
+      const longest = widestLine(el, role.max);
+      if (!longest) return;
+      const fs = Math.min(role.max, role.max * el.clientWidth / longest);
+      el.style.setProperty('--fs', Math.max(role.min, Math.floor(fs * 2) / 2));
+    });
+  }
 });
 </script>
 
