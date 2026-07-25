@@ -226,7 +226,7 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
     name: 'closing',
     template: 'closing',
     html: closingHtml,
-    checks: ['.headline', '.subheading', '.phone', '.email', '.cat'],
+    checks: ['.headline', '.subheading', '.phone', '.email', '.web', '.cat'],
   });
 
   return slides;

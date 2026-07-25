@@ -49,15 +49,19 @@
      body, then illustration. The 24px flow gap plus the image's extra
      12px keeps at least 36px between the last text line and the image. */
   .content{ position:absolute; left:var(--ml); right:var(--ml); top:431px;
-            display:flex; flex-direction:column; align-items:flex-start;
-            gap:24px; }
+            bottom:88px; display:flex; flex-direction:column;
+            align-items:flex-start; gap:24px; }
   .subheading{ --fs:72; margin:0; font-size:calc(var(--fs) * 1px);
                line-height:1.0833; font-weight:700; white-space:pre-wrap;
                align-self:stretch; }
   .body{ --fs:37; margin:0; font-size:calc(var(--fs) * 1px);
          line-height:1.2; font-weight:400; white-space:pre-wrap;
          align-self:stretch; }
-  .illustration{ margin-top:12px; width:500px; height:500px; flex:none;
+  /* The image yields to the text: when copy runs long it shrinks into the
+     remaining space (never the other way around), down to a legibility
+     floor — below that it overflows and the generator fails the slide. */
+  .illustration{ margin-top:12px; flex:0 1 auto; min-height:220px;
+                 width:auto; max-width:100%; max-height:500px;
                  object-fit:contain; object-position:left top; }
 </style>
 </head>
