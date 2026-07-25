@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vest Counsel middle slide</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
+    --gray:#808080; --charcoal:#282828; --cream:#edeae3;
+    --ml:88px;                 /* left and right margin */
+    --asc:0.968; --em:1.219;   /* Montserrat metrics, do not edit */
+  }
+  body{ margin:0; background:#f3f3f1; }
+
+  .slide{
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    font-family:'Montserrat',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   --bg:var(--paper);    --accent:var(--red);   }
+  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   --bg:var(--cream);    --accent:var(--red);   }
+  .slide.bg-ink     { background:var(--ink);      color:var(--paper); --bg:var(--ink);      --accent:var(--paper); }
+  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); --bg:var(--charcoal); --accent:var(--paper); }
+  .slide.bg-gray    { background:var(--gray);     color:var(--paper); --bg:var(--gray);     --accent:var(--paper); }
+  .slide.bg-red     { background:var(--red);      color:var(--paper); --bg:var(--red);      --accent:var(--paper); }
+
+  /* Baseline anchoring. .bl-top pins the first baseline, .bl-bot the last. */
+  .bl-top,.bl-bot{
+    position:absolute; left:var(--ml); right:var(--ml); margin:0;
+    font-size:calc(var(--fs) * 1px); line-height:var(--lh);
+    font-weight:700; white-space:pre;
+  }
+  .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
+  .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
+
+  /* Measured anchors. Title is bottom anchored so one and two line titles
+     both land on 842.2. Body is top anchored and flows down from 906.7. */
+  .eyebrow{ --fs:40; --lh:1;      --bl:375.6; letter-spacing:.083em; color:var(--accent); }
+  .title  { --fs:72; --lh:1.0833; --bl:842.2; }
+  .body   { --fs:37; --lh:1.2;    --bl:906.7; font-weight:400; opacity:.62; }
+  .caption{ --fs:37; --lh:1.2;    --bl:1050;  font-weight:400; opacity:.5; }
+
+  .rule{ position:absolute; left:var(--ml); width:514px; height:1px;
+         background:currentColor; opacity:.18; }
+  .r-top{ top:383px; }
+  .r-mid{ top:997px; }
+
+  /* Stock SVGs export on a 108 x 135 canvas, so this slot is the same
+     4:5 ratio. Any of them drops in with identical framing.           */
+  .art{ position:absolute; right:var(--ml); top:250px; width:400px; height:500px;
+        object-fit:contain; }
+  .has-art .title{ right:520px; }   /* keeps a long title clear of the art */
+</style>
+</head>
+<body>
+
+<!-- =======================================================================
+     EDIT HERE.
+     Backgrounds:  bg-paper  bg-cream  bg-ink  bg-charcoal  bg-gray  bg-red
+     Never indent a continuation line. Use &amp;amp; for an ampersand.
+
+     ILLUSTRATIONS. Put the file name in data-art, without the .svg:
+     abstract                abstract-document-look   glasses        Phone
+     abstract-building       abstract-scale           hat            purse
+     abstract-check          abstract-trademark       instrument     shirt
+     abstract-dial           abstract-trademark-2     jewelry        shopping-bag
+     abstract-document       abstract-trademark-3     laptop         shopping-bag-option
+     abstract-document-2     abstract-vary            magnifying     signing
+     book                    cosmetic-makeup          Microphone     signing-documents
+     bow                     cosmetic-spray           movie          umbrella
+     computer                document                 parasol
+     dress                   documents                person
+     envelope                flowers
+     ======================================================================= -->
+
+<div class="slide bg-paper has-art">
+
+  <p class="bl-top eyebrow">CLASS 018</p>
+  <div class="rule r-top"></div>
+
+  <h2 class="bl-bot title">Luggage &amp;
+Attache Cases</h2>
+
+  <p class="bl-top body">Credit card holders; satchels;
+beach bags; rucksacks; trunks</p>
+
+  <!-- optional, delete both lines together -->
+  <div class="rule r-mid"></div>
+  <p class="bl-top caption">Registration makes it easier to stop infringers
+from selling your goods</p>
+
+  <!-- optional, delete this line and drop has-art from the slide above -->
+  <img class="art" data-art="purse" alt="">
+
+</div>
+
+<script>
+/* Auto-fit: shrinks a line only if it would cross the margin.
+   Set lock to a number to force one fixed size on every slide. */
+const FIT = [
+  { sel:'.title', max:72, min:48, lock:null },
+  { sel:'.body',  max:37, min:30, lock:null }
+];
+
+/* ---------------------------------------------------------------------
+   ILLUSTRATIONS. Point ART_BASE at your repo once and every slide can
+   then name an image with data-art="purse". Must end in a slash.
+
+   GitHub (repo must be public):
+     https://raw.githubusercontent.com/USER/REPO/main/illustrations/
+   Local folder next to this file (fastest, works offline):
+     art/
+   --------------------------------------------------------------------- */
+const ART_BASE = 'https://raw.githubusercontent.com/USER/REPO/main/illustrations/';
+
+document.querySelectorAll('img[data-art]').forEach(img => {
+  img.src = ART_BASE + encodeURIComponent(img.dataset.art) + '.svg';
+  img.onerror = () => {
+    img.style.outline = '3px solid #ff0055';
+    console.warn('Illustration not found:', img.src);
+  };
+});
+
+function widestLine(el, fs){
+  const cs = getComputedStyle(el);
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
+    `font:${cs.fontWeight} ${fs}px Montserrat,sans-serif;`;
+  document.body.appendChild(probe);
+  let w = 0;
+  for (const line of el.textContent.split('\n')){
+    probe.textContent = line;
+    w = Math.max(w, probe.getBoundingClientRect().width);
+  }
+  probe.remove();
+  return w;
+}
+
+document.fonts.ready.then(() => {
+  for (const role of FIT){
+    document.querySelectorAll(role.sel).forEach(el => {
+      if (role.lock){ el.style.setProperty('--fs', role.lock); return; }
+      const longest = widestLine(el, role.max);
+      if (!longest) return;
+      const fs = Math.min(role.max, role.max * el.clientWidth / longest);
+      el.style.setProperty('--fs', Math.max(role.min, Math.floor(fs * 2) / 2));
+    });
+  }
+});
+</script>
+
+</body>
+</html>
