@@ -35,7 +35,7 @@
   .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
 
   .headline{ --fs:92.5; --lh:1.137; --bl:403.3; }
-  .label   { --fs:36; --lh:1; --bl:478.9; letter-spacing:.076em;
+  .subheading{ --fs:36; --lh:1; --bl:478.9; letter-spacing:.076em;
              text-transform:uppercase; color:var(--accent); }
   .phone   { --fs:24; --lh:1; --bl:519.7; letter-spacing:.058em; color:var(--accent); }
   .email   { --fs:24; --lh:1; --bl:560.7; letter-spacing:.058em; color:var(--accent);
@@ -57,12 +57,11 @@
      Never indent a continuation line.
      ======================================================================= -->
 
-<div class="slide bg-paper">
+<div class="slide {{BACKGROUND}}" data-cta-key="{{CTA_KEY}}">
 
-  <h1 class="bl-bot headline">Ready to build
-your IP empire?</h1>
+  <h1 class="bl-bot headline">{{CTA_HEADING}}</h1>
 
-  <p class="bl-top label">Call to get started</p>
+  <p class="bl-top subheading">{{CTA_SUBHEADING}}</p>
   <p class="bl-top phone">+1 888 VEST-599</p>
   <a class="bl-top email" href="mailto:hello@vestcounsel.com">hello@vestcounsel.com</a>
 
@@ -96,10 +95,30 @@ your IP empire?</h1>
 </div>
 
 <script>
+/* Direct preview: if the {{...}} placeholders were never replaced,
+   fall back to a sample CTA so the file still renders on its own. */
+(function(){
+  const slide = document.querySelector('.slide');
+  const headline = document.querySelector('.headline');
+  const subheading = document.querySelector('.subheading');
+  if (slide.className.indexOf('{{BACKGROUND}}') !== -1) slide.className = 'slide bg-paper';
+  if (slide.dataset.ctaKey === '{{CTA_KEY}}') slide.dataset.ctaKey = 'ip-empire';
+  if (headline.textContent === '{{CTA_HEADING}}') headline.textContent = 'Ready to build\nyour IP empire?';
+  if (subheading.textContent === '{{CTA_SUBHEADING}}') subheading.textContent = 'Start building today';
+  /* Injected copy may carry "\n" as two characters; turn them into real
+     newlines so multiline headings keep working under white-space:pre. */
+  for (const el of [headline, subheading]){
+    if (el.textContent.indexOf('\\n') !== -1){
+      el.textContent = el.textContent.split('\\n').join('\n');
+    }
+  }
+})();
+
 /* Auto-fit: shrinks a line only if it would cross the margin.
    Set lock to a number to force one fixed size on every slide. */
 const FIT = [
-  { sel:'.headline', max:92.5, min:60, lock:null }
+  { sel:'.headline', max:92.5, min:60, lock:null },
+  { sel:'.subheading', max:36, min:24, lock:null }
 ];
 
 function widestLine(el, fs){
