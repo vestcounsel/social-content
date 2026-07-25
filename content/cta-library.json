@@ -78,5 +78,21 @@
   "minaj-dead": {
     "heading": "Read the whole record",
     "subheading": "Get a clearance review"
+  },
+  "bey-universe": {
+    "heading": "Build your brand empire",
+    "subheading": "Schedule a consultation"
+  },
+  "bey-strategy": {
+    "heading": "Time your filings well",
+    "subheading": "Plan the next wave"
+  },
+  "bey-abandoned": {
+    "heading": "Check before you commit",
+    "subheading": "Reach out today"
+  },
+  "bey-dead": {
+    "heading": "Statuses are not verdicts",
+    "subheading": "Get a clearance review"
   }
 }
