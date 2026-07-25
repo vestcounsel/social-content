@@ -91,3 +91,16 @@ Every PNG is exactly 1080 × 1350.
 
 `npm run preview` writes the filled-in HTML to `.tmp/rendered/` without
 launching Chromium, so slides can be inspected in a browser first.
+
+## Watch mode
+
+```
+npm run watch                       # watch everything
+npm run watch -- --post <post_id>   # focus on one post
+```
+
+While it runs, editing `output/<post>/html/slide-NN.html` re-renders just
+that slide's PNG in place within about a second, and editing a template or
+`content/` file re-runs the full generator. The single-slide path is a fast
+preview without the generator's overflow/collision validation — run
+`npm run generate` before shipping.
