@@ -1,0 +1,10 @@
+/* Montserrat (SIL Open Font License), self-hosted so slides render
+   identically offline and in CI. Same variable font file Google Fonts
+   serves; the wght axis covers the 400 and 700 weights the slides use. */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(montserrat-latin.woff2) format('woff2');
+}

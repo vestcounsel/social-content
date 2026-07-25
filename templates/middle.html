@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Vest Counsel middle slide</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link href="../assets/fonts/montserrat.css" rel="stylesheet">
 <style>
   :root{
     --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
@@ -38,7 +38,8 @@
      both land on 842.2. Body is top anchored and flows down from 906.7. */
   .eyebrow{ --fs:40; --lh:1;      --bl:375.6; letter-spacing:.083em; color:var(--accent); }
   .title  { --fs:72; --lh:1.0833; --bl:842.2; }
-  .body   { --fs:37; --lh:1.2;    --bl:906.7; font-weight:400; opacity:.62; }
+  .body   { --fs:37; --lh:1.2;    --bl:906.7; font-weight:400; opacity:.62;
+            white-space:pre-wrap; }   /* keeps explicit breaks, wraps long CSV copy */
   .caption{ --fs:37; --lh:1.2;    --bl:1050;  font-weight:400; opacity:.5; }
 
   .rule{ position:absolute; left:var(--ml); width:514px; height:1px;
@@ -48,7 +49,7 @@
 
   /* Stock SVGs export on a 108 x 135 canvas, so this slot is the same
      4:5 ratio. Any of them drops in with identical framing.           */
-  .art{ position:absolute; right:var(--ml); top:250px; width:400px; height:500px;
+  .illustration{ position:absolute; right:var(--ml); top:250px; width:400px; height:500px;
         object-fit:contain; }
   .has-art .title{ right:520px; }   /* keeps a long title clear of the art */
 </style>
@@ -60,67 +61,71 @@
      Backgrounds:  bg-paper  bg-cream  bg-ink  bg-charcoal  bg-gray  bg-red
      Never indent a continuation line. Use &amp;amp; for an ampersand.
 
-     ILLUSTRATIONS. Put the file name in data-art, without the .svg:
-     abstract                abstract-document-look   glasses        Phone
-     abstract-building       abstract-scale           hat            purse
-     abstract-check          abstract-trademark       instrument     shirt
-     abstract-dial           abstract-trademark-2     jewelry        shopping-bag
-     abstract-document       abstract-trademark-3     laptop         shopping-bag-option
-     abstract-document-2     abstract-vary            magnifying     signing
-     book                    cosmetic-makeup          Microphone     signing-documents
-     bow                     cosmetic-spray           movie          umbrella
-     computer                document                 parasol
-     dress                   documents                person
-     envelope                flowers
+     ILLUSTRATIONS. The generator fills the img src from the CSV with a
+     file from assets/illustrations/. Leave the CSV field empty for a
+     slide with no illustration.
      ======================================================================= -->
 
-<div class="slide bg-paper has-art">
+<div class="slide {{BACKGROUND}}" data-template="middle">
 
-  <p class="bl-top eyebrow">CLASS 018</p>
+  <p class="bl-top eyebrow">{{SLIDE_NUMBER}}</p>
   <div class="rule r-top"></div>
 
-  <h2 class="bl-bot title">Luggage &amp;
-Attache Cases</h2>
+  <h2 class="bl-bot title">{{HEADING}}</h2>
 
-  <p class="bl-top body">Credit card holders; satchels;
-beach bags; rucksacks; trunks</p>
+  <p class="bl-top body">{{BODY}}</p>
 
-  <!-- optional, delete both lines together -->
-  <div class="rule r-mid"></div>
-  <p class="bl-top caption">Registration makes it easier to stop infringers
-from selling your goods</p>
-
-  <!-- optional, delete this line and drop has-art from the slide above -->
-  <img class="art" data-art="purse" alt="">
+  <img
+    src="{{ILLUSTRATION_SRC}}"
+    alt="{{ILLUSTRATION_ALT}}"
+    class="illustration"
+  >
 
 </div>
 
 <script>
+/* Direct preview: if the {{...}} placeholders were never replaced,
+   fall back to a sample slide so the file still renders on its own.
+   Tokens are split so the generator's replacement never touches them. */
+(function(){
+  const ph = name => '{{' + name + '}}';
+  const slide = document.querySelector('.slide');
+  const number = document.querySelector('.eyebrow');
+  const heading = document.querySelector('.title');
+  const body = document.querySelector('.body');
+  const art = document.querySelector('.illustration');
+  if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-cream';
+  if (number.textContent === ph('SLIDE_NUMBER')) number.textContent = '01';
+  if (heading.textContent === ph('HEADING')) heading.textContent = 'Use the correct\nlegal entity name';
+  if (body.textContent === ph('BODY')) body.textContent = 'The agreement should identify the exact company entering into the contract.';
+  if (art.getAttribute('src') === ph('ILLUSTRATION_SRC')){
+    art.src = '../assets/illustrations/document.svg';
+    art.alt = 'Contract document illustration';
+  }
+  if (art.getAttribute('alt') === ph('ILLUSTRATION_ALT')) art.alt = '';
+  /* Injected copy may carry "\n" as two characters; turn them into real
+     newlines so multiline text keeps working under white-space:pre. */
+  for (const el of [heading, body]){
+    if (el.textContent.indexOf('\\n') !== -1){
+      el.textContent = el.textContent.split('\\n').join('\n');
+    }
+  }
+  /* An empty illustration hides the slot; a filled one keeps the title
+     clear of the art exactly as has-art always did. */
+  if (art.getAttribute('src')){
+    slide.classList.add('has-art');
+  } else {
+    art.style.display = 'none';
+    slide.classList.remove('has-art');
+  }
+})();
+
 /* Auto-fit: shrinks a line only if it would cross the margin.
    Set lock to a number to force one fixed size on every slide. */
 const FIT = [
   { sel:'.title', max:72, min:48, lock:null },
   { sel:'.body',  max:37, min:30, lock:null }
 ];
-
-/* ---------------------------------------------------------------------
-   ILLUSTRATIONS. Point ART_BASE at your repo once and every slide can
-   then name an image with data-art="purse". Must end in a slash.
-
-   GitHub (repo must be public):
-     https://raw.githubusercontent.com/USER/REPO/main/illustrations/
-   Local folder next to this file (fastest, works offline):
-     art/
-   --------------------------------------------------------------------- */
-const ART_BASE = 'https://raw.githubusercontent.com/USER/REPO/main/illustrations/';
-
-document.querySelectorAll('img[data-art]').forEach(img => {
-  img.src = ART_BASE + encodeURIComponent(img.dataset.art) + '.svg';
-  img.onerror = () => {
-    img.style.outline = '3px solid #ff0055';
-    console.warn('Illustration not found:', img.src);
-  };
-});
 
 function widestLine(el, fs){
   const cs = getComputedStyle(el);

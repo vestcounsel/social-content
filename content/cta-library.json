@@ -1,0 +1,30 @@
+{
+  "general": {
+    "heading": "Ready for your\nnext move?",
+    "subheading": "Let’s build it right"
+  },
+  "ip-empire": {
+    "heading": "Ready to build\nyour IP empire?",
+    "subheading": "Start building today"
+  },
+  "build-business": {
+    "heading": "Ready to build\nyour business?",
+    "subheading": "Build on a stronger foundation"
+  },
+  "protect-business": {
+    "heading": "Ready to protect\nyour business?",
+    "subheading": "Start with a legal review"
+  },
+  "trademark": {
+    "heading": "Ready to protect\nyour brand?",
+    "subheading": "Start with clearance"
+  },
+  "contracts": {
+    "heading": "Before you sign,\nknow what you’re accepting.",
+    "subheading": "Request a contract review"
+  },
+  "platform": {
+    "heading": "Your product is ready.\nAre your legal terms?",
+    "subheading": "Prepare for launch"
+  }
+}

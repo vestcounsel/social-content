@@ -1,0 +1,14 @@
+{
+  "name": "social-content",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CSV-driven HTML-to-PNG carousel generator for Vest Counsel social posts",
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "preview": "node scripts/generate.js --preview"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6",
+    "playwright": "1.56.1"
+  }
+}
