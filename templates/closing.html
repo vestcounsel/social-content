@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Vest Counsel closing slide</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="../assets/fonts/montserrat.css" rel="stylesheet">
 <style>
   :root{
     --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
@@ -57,7 +57,7 @@
      Never indent a continuation line.
      ======================================================================= -->
 
-<div class="slide {{BACKGROUND}}" data-cta-key="{{CTA_KEY}}">
+<div class="slide {{BACKGROUND}}" data-template="closing" data-cta-key="{{CTA_KEY}}">
 
   <h1 class="bl-bot headline">{{CTA_HEADING}}</h1>
 
@@ -96,15 +96,17 @@
 
 <script>
 /* Direct preview: if the {{...}} placeholders were never replaced,
-   fall back to a sample CTA so the file still renders on its own. */
+   fall back to a sample CTA so the file still renders on its own.
+   Tokens are split so the generator's replacement never touches them. */
 (function(){
+  const ph = name => '{{' + name + '}}';
   const slide = document.querySelector('.slide');
   const headline = document.querySelector('.headline');
   const subheading = document.querySelector('.subheading');
-  if (slide.className.indexOf('{{BACKGROUND}}') !== -1) slide.className = 'slide bg-paper';
-  if (slide.dataset.ctaKey === '{{CTA_KEY}}') slide.dataset.ctaKey = 'ip-empire';
-  if (headline.textContent === '{{CTA_HEADING}}') headline.textContent = 'Ready to build\nyour IP empire?';
-  if (subheading.textContent === '{{CTA_SUBHEADING}}') subheading.textContent = 'Start building today';
+  if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-paper';
+  if (slide.dataset.ctaKey === ph('CTA_KEY')) slide.dataset.ctaKey = 'ip-empire';
+  if (headline.textContent === ph('CTA_HEADING')) headline.textContent = 'Ready to build\nyour IP empire?';
+  if (subheading.textContent === ph('CTA_SUBHEADING')) subheading.textContent = 'Start building today';
   /* Injected copy may carry "\n" as two characters; turn them into real
      newlines so multiline headings keep working under white-space:pre. */
   for (const el of [headline, subheading]){

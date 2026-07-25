@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Vest Counsel cover slide</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="../assets/fonts/montserrat.css" rel="stylesheet">
 <style>
   :root{
     --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
@@ -40,6 +40,7 @@
   .slide.bg-cream .wordmark{ opacity:1; color:var(--gray); }
 
   .display { --fs:120; --lh:1.35; --bl:1263; }
+  .subtitle{ --fs:40;  --lh:1.35; --bl:900; color:var(--accent); }
 </style>
 </head>
 <body>
@@ -50,16 +51,38 @@
      Never indent a continuation line. Use &amp;rsquo; for an apostrophe.
      ======================================================================= -->
 
-<div class="slide bg-ink">
+<div class="slide {{BACKGROUND}}" data-template="cover">
 
   <p class="bl-top wordmark">Vest Counsel</p>
 
-  <h1 class="bl-bot display">Lana Del Rey&rsquo;s
-IP Empire</h1>
+  <p class="bl-bot subtitle">{{SUBTITLE}}</p>
+
+  <h1 class="bl-bot display">{{TITLE}}</h1>
 
 </div>
 
 <script>
+/* Direct preview: if the {{...}} placeholders were never replaced,
+   fall back to a sample cover so the file still renders on its own.
+   Tokens are split so the generator's replacement never touches them. */
+(function(){
+  const ph = name => '{{' + name + '}}';
+  const slide = document.querySelector('.slide');
+  const title = document.querySelector('.display');
+  const subtitle = document.querySelector('.subtitle');
+  if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-paper';
+  if (title.textContent === ph('TITLE')) title.textContent = 'Five contract mistakes\nfounders should avoid';
+  if (subtitle.textContent === ph('SUBTITLE')) subtitle.textContent = '';
+  /* Injected copy may carry "\n" as two characters; turn them into real
+     newlines so multiline titles keep working under white-space:pre. */
+  for (const el of [title, subtitle]){
+    if (el.textContent.indexOf('\\n') !== -1){
+      el.textContent = el.textContent.split('\\n').join('\n');
+    }
+  }
+  if (!subtitle.textContent.trim()) subtitle.style.display = 'none';
+})();
+
 /* Auto-fit: shrinks a line only if it would cross the margin.
    Set lock to a number to force one fixed size on every slide. */
 const FIT = [
