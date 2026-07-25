@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vest Counsel cover slide</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
+    --gray:#808080; --charcoal:#282828; --cream:#edeae3;
+    --ml:88px;                 /* left and right margin */
+    --asc:0.968; --em:1.219;   /* Montserrat metrics, do not edit */
+  }
+  body{ margin:0; background:#f3f3f1; }
+
+  .slide{
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    font-family:'Montserrat',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background:var(--ink); color:var(--paper);
+  }
+  .slide.bg-ink     { background:var(--ink);      color:var(--paper); }
+  .slide.bg-red     { background:var(--red);      color:var(--paper); }
+  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); }
+  .slide.bg-gray    { background:var(--gray);     color:var(--paper); }
+  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   }
+  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   }
+
+  .bl-top,.bl-bot{
+    position:absolute; left:var(--ml); right:var(--ml); margin:0;
+    font-size:calc(var(--fs) * 1px); line-height:var(--lh);
+    font-weight:700;
+  }
+  .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
+  .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
+
+  .wordmark{ --fs:48; --lh:1; --bl:166.2;
+             letter-spacing:.105em; text-transform:uppercase; opacity:.42; }
+  .slide.bg-paper .wordmark,
+  .slide.bg-cream .wordmark{ opacity:1; color:var(--gray); }
+
+  /* white-space:pre means a line breaks ONLY where you press return.
+     The script below shrinks the type until the longest line fits. */
+  .display{ --fs:120; --lh:1.35; --bl:1263; letter-spacing:0; white-space:pre; }
+</style>
+</head>
+<body>
+
+<!-- =======================================================================
+     EDIT HERE. Change the bg- class, change the headline text.
+     Line breaks are literal: press return where you want the line to break.
+     Backgrounds: bg-ink  bg-red  bg-charcoal  bg-gray  bg-paper  bg-cream
+     ======================================================================= -->
+
+<div class="slide bg-ink">
+  <p class="bl-top wordmark">Vest Counsel</p>
+  <h1 class="bl-bot display">Lana Del Rey&rsquo;s
+IP Empire</h1>
+</div>
+
+<script>
+/* ---------------------------------------------------------------------
+   Auto-fit. Measures the longest line and drops the size until it clears
+   the margins. Never grows past MAX, never shrinks past MIN.
+
+   Set LOCK to a number (e.g. LOCK = 116) to force every headline to one
+   fixed size instead. Use that when you want a whole carousel to hold a
+   single type size no matter what the copy is.
+   --------------------------------------------------------------------- */
+const MAX = 120, MIN = 72, LOCK = null;
+
+function widestLine(el, fs){
+  const cs = getComputedStyle(el);
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
+    `font:700 ${fs}px Montserrat,sans-serif;letter-spacing:${cs.letterSpacing};`;
+  document.body.appendChild(probe);
+  let w = 0;
+  for (const line of el.textContent.split('\n')){
+    probe.textContent = line;
+    w = Math.max(w, probe.getBoundingClientRect().width);
+  }
+  probe.remove();
+  return w;
+}
+
+document.fonts.ready.then(() => {
+  document.querySelectorAll('.display').forEach(el => {
+    if (LOCK){ el.style.setProperty('--fs', LOCK); return; }
+    const avail = el.clientWidth;                  // 904 at an 88px margin
+    const fs = Math.min(MAX, Math.floor(MAX * avail / widestLine(el, MAX)));
+    el.style.setProperty('--fs', Math.max(MIN, fs));
+  });
+});
+</script>
+
+</body>
+</html>
