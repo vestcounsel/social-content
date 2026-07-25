@@ -68,6 +68,12 @@ function pad2(n) {
   return String(n).padStart(2, '0');
 }
 
+// A bare filename lives in assets/illustrations/; a value with a slash
+// (e.g. assets/photos/portrait.png) is resolved from the repo root.
+function resolveImage(value) {
+  return value.includes('/') ? path.join(ROOT, value) : path.join(ILLUSTRATION_DIR, value);
+}
+
 /* ------------------------------------------------------------- load input */
 
 function loadRows() {
@@ -152,7 +158,7 @@ function validateCarousel(postId, rows, ctaLibrary) {
            `Use one of: ${BACKGROUNDS.join(', ')}.`);
     }
     if (row.middle_illustration) {
-      const file = path.join(ILLUSTRATION_DIR, row.middle_illustration);
+      const file = resolveImage(row.middle_illustration);
       if (!fs.existsSync(file)) {
         fail(`${slideWhere}: illustration "${row.middle_illustration}" not found. Expected file: ${file}`);
       }
@@ -179,7 +185,7 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
   const middles = [...rows].sort((a, b) => Number(a.slide_number) - Number(b.slide_number));
   for (const row of middles) {
     const src = row.middle_illustration
-      ? pathToFileURL(path.join(ILLUSTRATION_DIR, row.middle_illustration)).href
+      ? pathToFileURL(resolveImage(row.middle_illustration)).href
       : '';
     slides.push({
       name: `middle ${row.slide_number}`,
