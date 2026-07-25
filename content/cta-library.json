@@ -30,5 +30,21 @@
   "platform": {
     "heading": "Your product is ready.\nAre your legal terms?",
     "subheading": "Prepare for launch"
+  },
+  "gaga-universe": {
+    "heading": "Gaga Protected\nThe Bigger Vision",
+    "subheading": "Protect more than one name"
+  },
+  "gaga-strategy": {
+    "heading": "Build A Portfolio\nLike Gaga’s",
+    "subheading": "Plan your filing roadmap"
+  },
+  "gaga-abandoned": {
+    "heading": "Search before you brand",
+    "subheading": "Reach out today"
+  },
+  "gaga-dead": {
+    "heading": "Gaga’s Dead Marks\nAren’t Available",
+    "subheading": "Get a full clearance review"
   }
 }

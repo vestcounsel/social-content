@@ -1,0 +1,65 @@
+name: Render edited slides
+
+# When slide HTML under output/<post>/html/ is edited (e.g. through the
+# GitHub web editor), re-render the matching PNGs and commit them back to
+# the same branch. The commit only touches .png files, so it never
+# re-triggers this workflow.
+
+on:
+  push:
+    paths:
+      - 'output/*/html/*.html'
+
+concurrency:
+  group: render-slides-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Find edited slide HTML
+        id: changed
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            BEFORE="${{ github.sha }}~1"
+          fi
+          git diff --name-only --diff-filter=d "$BEFORE" "${{ github.sha }}" -- 'output/*/html/*.html' | grep . > changed.txt || true
+          echo "count=$(wc -l < changed.txt)" >> "$GITHUB_OUTPUT"
+          cat changed.txt
+
+      - name: Render PNGs
+        if: steps.changed.outputs.count != '0'
+        run: xargs -a changed.txt -d '\n' node scripts/render-html.js
+
+      - name: Commit updated PNGs
+        if: steps.changed.outputs.count != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'output/*/*.png'
+          if git diff --cached --quiet; then
+            echo "PNGs already up to date"
+            exit 0
+          fi
+          git commit -m "Render PNGs for edited slide HTML [auto]"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push

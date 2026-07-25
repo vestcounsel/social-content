@@ -139,6 +139,11 @@ function validateCarousel(postId, rows, ctaLibrary) {
       fail(`${where}: ${field} "${value}" is not supported. Use one of: ${BACKGROUNDS.join(', ')}.`);
     }
   }
+  // Brand rule: covers never use cream.
+  if (first.cover_background === 'bg-cream') {
+    fail(`${where}: bg-cream is not allowed as a cover background. ` +
+         'Use bg-paper, bg-ink, bg-charcoal, bg-gray, or bg-red.');
+  }
 
   const ctaKey = first.cta_key;
   if (!ctaLibrary[ctaKey]) {
@@ -396,8 +401,12 @@ async function main() {
     }
   }
 
-  fs.rmSync(RENDER_DIR, { recursive: true, force: true });
+  // Empty the render directory rather than removing it: deleting the
+  // directory itself can hit transient ENOTEMPTY races on overlayfs.
   fs.mkdirSync(RENDER_DIR, { recursive: true });
+  for (const entry of fs.readdirSync(RENDER_DIR)) {
+    fs.rmSync(path.join(RENDER_DIR, entry), { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  }
 
   const jobs = [];
   for (const [postId, postRows] of carousels) {

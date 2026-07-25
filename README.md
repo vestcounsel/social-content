@@ -56,6 +56,7 @@ cta_key,closing_background,middle_subheading
 - `publish_at` uses `YYYY-MM-DD HH:MM`; its month decides the output folder.
 - Write `\n` inside a field for an explicit line break.
 - Backgrounds: `bg-paper`, `bg-cream`, `bg-ink`, `bg-charcoal`, `bg-gray`, `bg-red`.
+  Covers never use `bg-cream` — the generator rejects it.
 - `slide_number` orders the middle slides and must be unique per post. It is
   internal only — slide numbers are never displayed on a slide.
 - `middle_subheading` is an optional bold line (e.g. a person's name) placed
@@ -90,3 +91,16 @@ Every PNG is exactly 1080 × 1350.
 
 `npm run preview` writes the filled-in HTML to `.tmp/rendered/` without
 launching Chromium, so slides can be inspected in a browser first.
+
+## Watch mode
+
+```
+npm run watch                       # watch everything
+npm run watch -- --post <post_id>   # focus on one post
+```
+
+While it runs, editing `output/<post>/html/slide-NN.html` re-renders just
+that slide's PNG in place within about a second, and editing a template or
+`content/` file re-runs the full generator. The single-slide path is a fast
+preview without the generator's overflow/collision validation — run
+`npm run generate` before shipping.
