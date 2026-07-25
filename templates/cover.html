@@ -39,9 +39,10 @@
   .slide.bg-paper .wordmark,
   .slide.bg-cream .wordmark{ opacity:1; color:var(--gray); }
 
-  /* white-space:pre means a line breaks ONLY where you press return.
-     The script below shrinks the type until the longest line fits. */
-  .display{ --fs:120; --lh:1.35; --bl:1263; letter-spacing:0; white-space:pre; }
+  /* pre-wrap keeps explicit returns AND wraps long titles naturally.
+     The script below holds 120px whenever the title fits on up to
+     three lines, and only then starts shrinking. */
+  .display{ --fs:120; --lh:1.35; --bl:1263; letter-spacing:0; white-space:pre-wrap; }
 </style>
 </head>
 <body>
@@ -75,37 +76,31 @@
 })();
 
 /* ---------------------------------------------------------------------
-   Auto-fit. Measures the longest line and drops the size until it clears
-   the margins. Never grows past MAX, never shrinks past MIN.
+   Auto-fit. Titles hold 120px and wrap naturally onto up to three
+   lines. The size drops only when the title would need a fourth line
+   (or a single unbreakable word is wider than the margins), and never
+   shrinks past MIN.
 
    Set LOCK to a number (e.g. LOCK = 116) to force every headline to one
    fixed size instead. Use that when you want a whole carousel to hold a
    single type size no matter what the copy is.
    --------------------------------------------------------------------- */
-const MAX = 120, MIN = 72, LOCK = null;
-
-function widestLine(el, fs){
-  const cs = getComputedStyle(el);
-  const probe = document.createElement('span');
-  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
-    `font:700 ${fs}px Montserrat,sans-serif;` +
-    `letter-spacing:${cs.letterSpacing};text-transform:${cs.textTransform};`;
-  document.body.appendChild(probe);
-  let w = 0;
-  for (const line of el.textContent.split('\n')){
-    probe.textContent = line;
-    w = Math.max(w, probe.getBoundingClientRect().width);
-  }
-  probe.remove();
-  return w;
-}
+const MAX = 120, MIN = 72, LOCK = null, MAX_LINES = 3;
 
 document.fonts.ready.then(() => {
   document.querySelectorAll('.display').forEach(el => {
     if (LOCK){ el.style.setProperty('--fs', LOCK); return; }
-    const avail = el.clientWidth;                  // 904 at an 88px margin
-    const fs = Math.min(MAX, Math.floor(MAX * avail / widestLine(el, MAX)));
-    el.style.setProperty('--fs', Math.max(MIN, fs));
+    const lh = 1.35;
+    const fits = (fs) => {
+      const lineCount = Math.round(el.clientHeight / (lh * fs));
+      return lineCount <= MAX_LINES && el.scrollWidth <= el.clientWidth + 1;
+    };
+    let fs = MAX;
+    el.style.setProperty('--fs', fs);
+    while (fs > MIN && !fits(fs)){
+      fs -= 0.5;
+      el.style.setProperty('--fs', fs);
+    }
   });
 });
 </script>
