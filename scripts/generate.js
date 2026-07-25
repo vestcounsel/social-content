@@ -341,6 +341,30 @@ async function renderSlide(page, htmlFile, job) {
     fail(`${job.label}: validation failed after fonts and images loaded:\n  - ${problems.join('\n  - ')}\n` +
          'Shorten the copy, add explicit line breaks in the CSV, or use a smaller image.');
   }
+
+  // Report the final computed type sizes, warning when auto-fit drove an
+  // element to its minimum (a sign the copy needs editing, not more shrink).
+  const sizes = await page.evaluate(() => {
+    const out = [];
+    for (const sel of ['.display', '.title', '.subheading', '.body', '.headline']) {
+      const el = document.querySelector(sel);
+      if (!el || getComputedStyle(el).display === 'none') continue;
+      out.push({ sel, px: Math.round(parseFloat(getComputedStyle(el).fontSize) * 2) / 2 });
+    }
+    return out;
+  });
+  const floors = {
+    cover: { '.display': 72 },
+    middle: { '.title': 48, '.subheading': 36, '.body': 36 },
+    closing: { '.headline': 60, '.subheading': 24 },
+  }[job.template] || {};
+  for (const s of sizes) {
+    if (floors[s.sel] !== undefined && s.px <= floors[s.sel]) {
+      console.warn(`  warning: ${job.label}: ${s.sel} rendered at its ${floors[s.sel]}px minimum — ` +
+                   'the copy may need editing');
+    }
+  }
+  return sizes;
 }
 
 /* -------------------------------------------------------------------- run */
@@ -387,6 +411,7 @@ async function main() {
         postId,
         month,
         htmlFile,
+        template: slide.template,
         checks: slide.checks,
         minGapBelowText: slide.minGapBelowText,
         label: `post "${postId}", ${slide.name} [${slide.template} template] (slide-${pad2(index + 1)}.png)`,
@@ -410,13 +435,14 @@ async function main() {
 
   try {
     for (const job of jobs) {
-      await renderSlide(page, job.htmlFile, job);
+      const sizes = await renderSlide(page, job.htmlFile, job);
       fs.mkdirSync(path.dirname(job.pngFile), { recursive: true });
       await page.screenshot({
         path: job.pngFile,
         clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT },
       });
-      console.log(`wrote ${path.relative(ROOT, job.pngFile)}`);
+      const typeReport = sizes.map((s) => `${s.sel} ${s.px}px`).join(', ');
+      console.log(`wrote ${path.relative(ROOT, job.pngFile)}  [${typeReport}]`);
     }
   } finally {
     await browser.close();

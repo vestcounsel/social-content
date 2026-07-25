@@ -37,8 +37,9 @@
   /* Hierarchy: title above the divider, divider, stacked content below,
      image only after all text. The title takes the accent red. Its LAST
      baseline is pinned, so multiline titles grow upward and always stay
-     clear of the divider. */
-  .title{ --fs:40; --lh:1.35; --bl:375.6; letter-spacing:.083em; color:var(--accent); }
+     clear of the divider (baseline sits so 60px descenders keep the same
+     visual gap to the rule that the smaller title had). */
+  .title{ --fs:60; --lh:1.35; --bl:368; letter-spacing:.083em; color:var(--accent); }
 
   .rule{ position:absolute; left:var(--ml); width:514px; height:1px;
          background:currentColor; opacity:.18; }
@@ -51,10 +52,10 @@
   .content{ position:absolute; left:var(--ml); right:var(--ml); top:431px;
             bottom:88px; display:flex; flex-direction:column;
             align-items:flex-start; gap:24px; }
-  .subheading{ --fs:72; margin:0; font-size:calc(var(--fs) * 1px);
+  .subheading{ --fs:40; margin:0; font-size:calc(var(--fs) * 1px);
                line-height:1.0833; font-weight:700; white-space:pre-wrap;
                align-self:stretch; }
-  .body{ --fs:37; margin:0; font-size:calc(var(--fs) * 1px);
+  .body{ --fs:40; margin:0; font-size:calc(var(--fs) * 1px);
          line-height:1.2; font-weight:400; white-space:pre-wrap;
          align-self:stretch; }
   /* The image yields to the text: when copy runs long it shrinks into the
@@ -128,10 +129,10 @@
 
 /* Auto-fit: shrinks a line only if it would cross the margin.
    Set lock to a number to force one fixed size on every slide.
-   The body wraps instead of shrinking, so it is not fitted. */
+   The body wraps, so its overflow is vertical and handled separately. */
 const FIT = [
-  { sel:'.title',      max:40, min:30, lock:null },
-  { sel:'.subheading', max:72, min:48, lock:null }
+  { sel:'.title',      max:60, min:48, lock:null },
+  { sel:'.subheading', max:40, min:36, lock:null }
 ];
 
 function widestLine(el, fs){
@@ -160,6 +161,18 @@ document.fonts.ready.then(() => {
       const fs = Math.min(role.max, role.max * avail / longest);
       el.style.setProperty('--fs', Math.max(role.min, Math.floor(fs * 2) / 2));
     });
+  }
+  /* Body copy wraps, so it only ever overflows vertically. Step down
+     from 40 no further than 36; past that the generator fails the
+     slide so the copy gets edited instead of shrunk into tiny type. */
+  const content = document.querySelector('.content');
+  const body = document.querySelector('.body');
+  if (content && body){
+    let fs = 40;
+    while (fs > 36 && content.scrollHeight > content.clientHeight + 1){
+      fs -= 0.5;
+      body.style.setProperty('--fs', fs);
+    }
   }
 });
 </script>
