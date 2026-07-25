@@ -56,6 +56,7 @@ cta_key,closing_background,middle_subheading
 - `publish_at` uses `YYYY-MM-DD HH:MM`; its month decides the output folder.
 - Write `\n` inside a field for an explicit line break.
 - Backgrounds: `bg-paper`, `bg-cream`, `bg-ink`, `bg-charcoal`, `bg-gray`, `bg-red`.
+  Covers never use `bg-cream` — the generator rejects it.
 - `slide_number` orders the middle slides and must be unique per post. It is
   internal only — slide numbers are never displayed on a slide.
 - `middle_subheading` is an optional bold line (e.g. a person's name) placed

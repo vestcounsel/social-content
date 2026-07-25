@@ -139,6 +139,11 @@ function validateCarousel(postId, rows, ctaLibrary) {
       fail(`${where}: ${field} "${value}" is not supported. Use one of: ${BACKGROUNDS.join(', ')}.`);
     }
   }
+  // Brand rule: covers never use cream.
+  if (first.cover_background === 'bg-cream') {
+    fail(`${where}: bg-cream is not allowed as a cover background. ` +
+         'Use bg-paper, bg-ink, bg-charcoal, bg-gray, or bg-red.');
+  }
 
   const ctaKey = first.cta_key;
   if (!ctaLibrary[ctaKey]) {
