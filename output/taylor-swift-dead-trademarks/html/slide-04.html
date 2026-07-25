@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="file:///home/user/social-content/templates/">
+<meta charset="utf-8">
+<title>Vest Counsel middle slide</title>
+<link href="../assets/fonts/montserrat.css" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
+    --gray:#808080; --charcoal:#282828; --cream:#edeae3;
+    --ml:88px;                 /* left and right margin */
+    --asc:0.968; --em:1.219;   /* Montserrat metrics, do not edit */
+  }
+  body{ margin:0; background:#f3f3f1; }
+
+  .slide{
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    font-family:'Montserrat',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   --bg:var(--paper);    --accent:var(--red);   }
+  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   --bg:var(--cream);    --accent:var(--red);   }
+  .slide.bg-ink     { background:var(--ink);      color:var(--paper); --bg:var(--ink);      --accent:var(--paper); }
+  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); --bg:var(--charcoal); --accent:var(--paper); }
+  .slide.bg-gray    { background:var(--gray);     color:var(--paper); --bg:var(--gray);     --accent:var(--paper); }
+  .slide.bg-red     { background:var(--red);      color:var(--paper); --bg:var(--red);      --accent:var(--paper); }
+
+  /* Baseline anchoring. .bl-top pins the first baseline, .bl-bot the last. */
+  .bl-top,.bl-bot{
+    position:absolute; left:var(--ml); right:var(--ml); margin:0;
+    font-size:calc(var(--fs) * 1px); line-height:var(--lh);
+    font-weight:700; white-space:pre;
+  }
+  .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
+  .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
+
+  /* Hierarchy: title above the divider, divider, stacked content below,
+     image only after all text. The title takes the accent red. Its LAST
+     baseline is pinned, so multiline titles grow upward and always stay
+     clear of the divider (baseline sits so 60px descenders keep the same
+     visual gap to the rule that the smaller title had). */
+  .title{ --fs:60; --lh:1.35; --bl:368; letter-spacing:.083em; color:var(--accent); }
+
+  .rule{ position:absolute; left:var(--ml); width:514px; height:1px;
+         background:currentColor; opacity:.18; }
+  .r-top{ top:391px; }   /* sits clear of the title's descenders */
+
+  /* Content flows top-down in normal document order, so the image can
+     never sit beside or above the text: subheading (optional bold name),
+     body, then illustration. The 24px flow gap plus the image's extra
+     12px keeps at least 36px between the last text line and the image. */
+  .content{ position:absolute; left:var(--ml); right:var(--ml); top:431px;
+            bottom:88px; display:flex; flex-direction:column;
+            align-items:flex-start; gap:24px; }
+  .subheading{ --fs:40; margin:0; font-size:calc(var(--fs) * 1px);
+               line-height:1.0833; font-weight:700; white-space:pre-wrap;
+               align-self:stretch; }
+  .body{ --fs:40; margin:0; font-size:calc(var(--fs) * 1px);
+         line-height:1.2; font-weight:400; white-space:pre-wrap;
+         align-self:stretch; }
+  /* The image yields to the text: when copy runs long it shrinks into the
+     remaining space (never the other way around), down to a legibility
+     floor — below that it overflows and the generator fails the slide. */
+  .illustration{ margin-top:12px; flex:0 1 auto; min-height:220px;
+                 width:auto; max-width:100%; max-height:500px;
+                 object-fit:contain; object-position:left top; }
+</style>
+</head>
+<body>
+
+<!-- =======================================================================
+     EDIT HERE.
+     Backgrounds:  bg-paper  bg-cream  bg-ink  bg-charcoal  bg-gray  bg-red
+     Never indent a continuation line. Use &amp;amp; for an ampersand.
+
+     ILLUSTRATIONS. The generator fills the img src from the CSV with a
+     file from assets/illustrations/ (or a repo path such as
+     assets/photos/name.png). Leave the CSV field empty for a slide with
+     no image. Slide numbers are never rendered.
+     ======================================================================= -->
+
+<div class="slide bg-paper" data-template="middle">
+
+  <p class="bl-bot title">SWIFTSTAKES Came And Went</p>
+  <div class="rule r-top"></div>
+
+  <div class="content">
+    <h2 class="subheading">Registered 2015 · now dead</h2>
+    <p class="body">SWIFTSTAKES, a sweepstakes brand, registered in 2015 and later left the register. Campaign brands can retire while the core portfolio stays intact.</p>
+    <img
+      src=""
+      alt=""
+      class="illustration"
+    >
+  </div>
+
+</div>
+
+<script>
+/* Direct preview: if the {{...}} placeholders were never replaced,
+   fall back to a sample slide so the file still renders on its own.
+   Tokens are split so the generator's replacement never touches them. */
+(function(){
+  const ph = name => '{{' + name + '}}';
+  const slide = document.querySelector('.slide');
+  const title = document.querySelector('.title');
+  const subheading = document.querySelector('.subheading');
+  const body = document.querySelector('.body');
+  const art = document.querySelector('.illustration');
+  if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-cream';
+  if (title.textContent === ph('HEADING')) title.textContent = 'Use the correct entity name';
+  if (subheading.textContent === ph('SUBHEADING')) subheading.textContent = '';
+  if (body.textContent === ph('BODY')) body.textContent = 'The agreement should identify the exact company entering into the contract.';
+  if (art.getAttribute('src') === ph('ILLUSTRATION_SRC')){
+    art.src = '../assets/illustrations/document.svg';
+    art.alt = 'Contract document illustration';
+  }
+  if (art.getAttribute('alt') === ph('ILLUSTRATION_ALT')) art.alt = '';
+  /* Injected copy may carry "\n" as two characters; turn them into real
+     newlines so multiline text keeps working. */
+  for (const el of [title, subheading, body]){
+    if (el.textContent.indexOf('\\n') !== -1){
+      el.textContent = el.textContent.split('\\n').join('\n');
+    }
+  }
+  if (!subheading.textContent.trim()) subheading.style.display = 'none';
+  if (!art.getAttribute('src')) art.style.display = 'none';
+})();
+
+/* Auto-fit: shrinks a line only if it would cross the margin.
+   Set lock to a number to force one fixed size on every slide.
+   The body wraps, so its overflow is vertical and handled separately. */
+const FIT = [
+  { sel:'.title',      max:60, min:48, lock:null },
+  { sel:'.subheading', max:40, min:36, lock:null }
+];
+
+function widestLine(el, fs){
+  const cs = getComputedStyle(el);
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
+    `font:${cs.fontWeight} ${fs}px Montserrat,sans-serif;` +
+    `letter-spacing:${cs.letterSpacing};text-transform:${cs.textTransform};`;
+  document.body.appendChild(probe);
+  let w = 0;
+  for (const line of el.textContent.split('\n')){
+    probe.textContent = line;
+    w = Math.max(w, probe.getBoundingClientRect().width);
+  }
+  probe.remove();
+  return w;
+}
+
+document.fonts.ready.then(() => {
+  for (const role of FIT){
+    document.querySelectorAll(role.sel).forEach(el => {
+      if (role.lock){ el.style.setProperty('--fs', role.lock); return; }
+      const longest = widestLine(el, role.max);
+      if (!longest) return;
+      const avail = el.clientWidth || el.parentElement.clientWidth;
+      const fs = Math.min(role.max, role.max * avail / longest);
+      el.style.setProperty('--fs', Math.max(role.min, Math.floor(fs * 2) / 2));
+    });
+  }
+  /* Body copy wraps, so it only ever overflows vertically. Step down
+     from 40 no further than 36; past that the generator fails the
+     slide so the copy gets edited instead of shrunk into tiny type. */
+  const content = document.querySelector('.content');
+  const body = document.querySelector('.body');
+  if (content && body){
+    let fs = 40;
+    while (fs > 36 && content.scrollHeight > content.clientHeight + 1){
+      fs -= 0.5;
+      body.style.setProperty('--fs', fs);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
