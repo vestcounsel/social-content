@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="file:///home/user/social-content/templates/">
+<meta charset="utf-8">
+<title>Vest Counsel cover slide</title>
+<link href="../assets/fonts/montserrat.css" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
+    --gray:#808080; --charcoal:#282828; --cream:#edeae3;
+    --ml:88px;                 /* left and right margin */
+    --asc:0.968; --em:1.219;   /* Montserrat metrics, do not edit */
+  }
+  body{ margin:0; background:#f3f3f1; }
+
+  .slide{
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    font-family:'Montserrat',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background:var(--ink); color:var(--paper);
+  }
+  .slide.bg-ink     { background:var(--ink);      color:var(--paper); }
+  .slide.bg-red     { background:var(--red);      color:var(--paper); }
+  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); }
+  .slide.bg-gray    { background:var(--gray);     color:var(--paper); }
+  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   }
+  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   }
+
+  .bl-top,.bl-bot{
+    position:absolute; left:var(--ml); right:var(--ml); margin:0;
+    font-size:calc(var(--fs) * 1px); line-height:var(--lh);
+    font-weight:700;
+  }
+  .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
+  .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
+
+  .wordmark{ --fs:48; --lh:1; --bl:166.2;
+             letter-spacing:.105em; text-transform:uppercase; opacity:.42; }
+  .slide.bg-paper .wordmark,
+  .slide.bg-cream .wordmark{ opacity:1; color:var(--gray); }
+
+  /* pre-wrap keeps explicit returns AND wraps long titles naturally.
+     The script below holds 120px whenever the title fits on up to
+     three lines, and only then starts shrinking. */
+  .display{ --fs:120; --lh:1.35; --bl:1263; letter-spacing:0; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+
+<!-- =======================================================================
+     EDIT HERE. Change the bg- class, change the headline text.
+     Line breaks are literal: press return where you want the line to break.
+     Backgrounds: bg-ink  bg-red  bg-charcoal  bg-gray  bg-paper  bg-cream
+     ======================================================================= -->
+
+<div class="slide bg-paper" data-template="cover">
+  <p class="bl-top wordmark">Vest Counsel</p>
+  <h1 class="bl-bot display">5 Steps Before You File</h1>
+</div>
+
+<script>
+/* Direct preview: if the {{...}} placeholders were never replaced,
+   fall back to a sample cover so the file still renders on its own.
+   Tokens are split so the generator's replacement never touches them. */
+(function(){
+  const ph = name => '{{' + name + '}}';
+  const slide = document.querySelector('.slide');
+  const title = document.querySelector('.display');
+  if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-paper';
+  if (title.textContent === ph('TITLE')) title.textContent = 'Five contract mistakes\nfounders should avoid';
+  /* Injected copy may carry "\n" as two characters; turn them into real
+     newlines so multiline titles keep working under white-space:pre. */
+  if (title.textContent.indexOf('\\n') !== -1){
+    title.textContent = title.textContent.split('\\n').join('\n');
+  }
+})();
+
+/* ---------------------------------------------------------------------
+   Auto-fit. Titles hold 120px and wrap naturally onto up to three
+   lines. The size drops only when the title would need a fourth line
+   (or a single unbreakable word is wider than the margins), and never
+   shrinks past MIN.
+
+   Set LOCK to a number (e.g. LOCK = 116) to force every headline to one
+   fixed size instead. Use that when you want a whole carousel to hold a
+   single type size no matter what the copy is.
+   --------------------------------------------------------------------- */
+const MAX = 120, MIN = 72, LOCK = null, MAX_LINES = 3;
+
+document.fonts.ready.then(() => {
+  document.querySelectorAll('.display').forEach(el => {
+    if (LOCK){ el.style.setProperty('--fs', LOCK); return; }
+    const lh = 1.35;
+    const fits = (fs) => {
+      const lineCount = Math.round(el.clientHeight / (lh * fs));
+      return lineCount <= MAX_LINES && el.scrollWidth <= el.clientWidth + 1;
+    };
+    let fs = MAX;
+    el.style.setProperty('--fs', fs);
+    while (fs > MIN && !fits(fs)){
+      fs -= 0.5;
+      el.style.setProperty('--fs', fs);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

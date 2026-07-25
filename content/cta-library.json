@@ -98,5 +98,9 @@
   "clearance-search": {
     "heading": "Clear the name first",
     "subheading": "Schedule a clearance search"
+  },
+  "filing-steps": {
+    "heading": "File it right\nthe first time",
+    "subheading": "Start with a filing review"
   }
 }
