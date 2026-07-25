@@ -2,7 +2,7 @@
 /* CSV-driven carousel generator.
  *
  *   content/posts.csv  ->  templates/*.html  ->  .tmp/rendered/*.html
- *                      ->  Playwright Chromium  ->  output/YYYY-MM/post-id/slide-NN.png
+ *                      ->  Playwright Chromium  ->  public/social/YYYY-MM/post-id/slide-NN.png
  *
  * Usage:
  *   node scripts/generate.js                 render PNGs
@@ -23,7 +23,7 @@ const CTA_PATH = path.join(ROOT, 'content', 'cta-library.json');
 const TEMPLATE_DIR = path.join(ROOT, 'templates');
 const ILLUSTRATION_DIR = path.join(ROOT, 'assets', 'illustrations');
 const RENDER_DIR = path.join(ROOT, '.tmp', 'rendered');
-const OUTPUT_DIR = path.join(ROOT, 'output');
+const OUTPUT_DIR = path.join(ROOT, 'public', 'social');
 
 const WIDTH = 1080;
 const HEIGHT = 1350;
@@ -88,6 +88,8 @@ function loadRows() {
     skip_empty_lines: true,
     trim: true,
     bom: true,
+    // Older rows may predate optional trailing columns (middle_subheading).
+    relax_column_count_less: true,
   });
   if (!rows.length) fail(`No rows found in ${CSV_PATH}`);
   return rows;
@@ -181,11 +183,12 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
   // deliberately never rendered.
   slides.push({
     name: 'cover',
+    template: 'cover',
     html: fillTemplate(templates.cover, {
       BACKGROUND: first.cover_background,
       TITLE: escapeHtml(toMultiline(first.cover_title)),
     }),
-    checks: ['.display'],
+    checks: ['.wordmark', '.display'],
   });
 
   const middles = [...rows].sort((a, b) => Number(a.slide_number) - Number(b.slide_number));
@@ -195,34 +198,56 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
       : '';
     // slide_number is an internal ordering field only; it is never rendered.
     slides.push({
-      name: `middle ${row.slide_number}`,
+      name: `middle (order ${row.slide_number})`,
+      template: 'middle',
       html: fillTemplate(templates.middle, {
         BACKGROUND: row.middle_background,
         HEADING: escapeHtml(toMultiline(row.middle_heading)),
+        SUBHEADING: escapeHtml(toMultiline(row.middle_subheading || '')),
         BODY: escapeHtml(toMultiline(row.middle_body)),
         ILLUSTRATION_SRC: escapeHtml(src),
         ILLUSTRATION_ALT: escapeHtml(row.middle_alt || ''),
       }),
-      checks: ['.title', '.body', '.illustration'],
+      checks: ['.title', '.rule.r-top', '.subheading', '.body', '.illustration'],
+      // The image must start at least 36px below the last line of text.
+      minGapBelowText: '.illustration',
     });
   }
 
   const cta = ctaLibrary[first.cta_key];
+  const closingHtml = fillTemplate(templates.closing, {
+    BACKGROUND: first.closing_background,
+    CTA_KEY: escapeHtml(first.cta_key),
+    CTA_HEADING: escapeHtml(cta.heading),
+    CTA_SUBHEADING: escapeHtml(cta.subheading),
+  });
+  assertCatUnchanged(templates.closing, closingHtml, postId);
   slides.push({
     name: 'closing',
-    html: fillTemplate(templates.closing, {
-      BACKGROUND: first.closing_background,
-      CTA_KEY: escapeHtml(first.cta_key),
-      CTA_HEADING: escapeHtml(cta.heading),
-      CTA_SUBHEADING: escapeHtml(cta.subheading),
-    }),
-    checks: ['.headline', '.subheading', '.phone', '.email'],
+    template: 'closing',
+    html: closingHtml,
+    checks: ['.headline', '.subheading', '.phone', '.email', '.cat'],
   });
 
   return slides;
 }
 
-async function renderSlide(page, htmlFile, checks, label) {
+// The cat is a locked brand asset: whatever background the CSV picks, the
+// generated markup must carry the cat SVG exactly as stored in the template.
+function assertCatUnchanged(templateHtml, generatedHtml, postId) {
+  const catOf = (html) => {
+    const match = html.match(/<svg class="cat"[\s\S]*?<\/svg>/);
+    return match ? match[0] : null;
+  };
+  const original = catOf(templateHtml);
+  const generated = catOf(generatedHtml);
+  if (!original || generated !== original) {
+    fail(`post "${postId}": the closing-slide cat asset would be modified during generation. ` +
+         'The cat is locked and must be inserted exactly as stored in templates/closing.html.');
+  }
+}
+
+async function renderSlide(page, htmlFile, job) {
   await page.goto(pathToFileURL(htmlFile).href, { waitUntil: 'load' });
 
   // Freeze animations and transitions before measuring or capturing.
@@ -246,33 +271,75 @@ async function renderSlide(page, htmlFile, checks, label) {
   // The auto-fit script runs on fonts.ready; give it one settled frame.
   await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
 
-  const problems = await page.evaluate((selectors) => {
+  const problems = await page.evaluate(({ selectors, minGapBelowText }) => {
     const slide = document.querySelector('.slide');
     const bounds = slide.getBoundingClientRect();
+    const tol = 2;
     const found = [];
+
+    // Measure every major element. For text, measure the actual rendered
+    // line boxes via a Range: element boxes span the full margin width, so
+    // they would false-positive against elements on the other side of the
+    // slide, and scrollWidth never reports less than the container width.
+    const boxes = [];
     for (const sel of selectors) {
       const el = document.querySelector(sel);
       if (!el || getComputedStyle(el).display === 'none') continue;
-      const r = el.getBoundingClientRect();
-      if (r.width === 0 && r.height === 0) continue;
-      const tolerance = 1;
-      if (r.left < bounds.left - tolerance || r.right > bounds.right + tolerance ||
-          r.top < bounds.top - tolerance || r.bottom > bounds.bottom + tolerance) {
-        found.push(`${sel} extends outside the 1080x1350 slide bounds`);
+      const tag = el.tagName.toLowerCase();
+      const isText = tag !== 'img' && tag !== 'svg' && !el.classList.contains('rule');
+      let r = el.getBoundingClientRect();
+      if (isText) {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        r = range.getBoundingClientRect();
       }
-      // Text may exceed its margin box by a hair when auto-fit clamps at
-      // its minimum size; the slide only clips at its own edge
-      // (overflow:hidden), so measure the rendered extent against that.
-      if (r.left + el.scrollWidth > bounds.right + tolerance) {
-        found.push(`${sel} text is clipped at the right slide edge`);
+      if (r.width === 0 && r.height === 0) continue;
+      boxes.push({ sel, isText, left: r.left, top: r.top, right: r.right, bottom: r.bottom });
+    }
+
+    // 1. Nothing may extend beyond the slide boundary (overflow:hidden
+    //    clips exactly there).
+    for (const b of boxes) {
+      if (b.left < bounds.left - tol || b.right > bounds.right + tol ||
+          b.top < bounds.top - tol || b.bottom > bounds.bottom + tol) {
+        found.push(`overflow: ${b.sel} extends outside the 1080x1350 slide boundary`);
       }
     }
+
+    // 2. No two major elements may overlap.
+    for (let i = 0; i < boxes.length; i++) {
+      for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i], b = boxes[j];
+        const w = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (w > tol && h > tol) {
+          found.push(`collision: ${a.sel} overlaps ${b.sel}`);
+        }
+      }
+    }
+
+    // 3. An image must start at least 36px below the last line of text.
+    if (minGapBelowText) {
+      const img = document.querySelector(minGapBelowText);
+      if (img && getComputedStyle(img).display !== 'none') {
+        const imgTop = img.getBoundingClientRect().top;
+        let lastTextBottom = -Infinity;
+        for (const b of boxes) {
+          if (b.isText && b.bottom <= imgTop + tol) lastTextBottom = Math.max(lastTextBottom, b.bottom);
+        }
+        if (Number.isFinite(lastTextBottom) && imgTop - lastTextBottom < 36 - tol) {
+          found.push(`spacing: ${minGapBelowText} begins ${Math.round(imgTop - lastTextBottom)}px ` +
+                     'below the text; the minimum is 36px');
+        }
+      }
+    }
+
     return found;
-  }, checks);
+  }, { selectors: job.checks, minGapBelowText: job.minGapBelowText || null });
 
   if (problems.length) {
-    fail(`${label}: content is clipped or outside the slide after auto-fit:\n  - ${problems.join('\n  - ')}\n` +
-         'Shorten the copy or add explicit line breaks in the CSV.');
+    fail(`${job.label}: validation failed after fonts and images loaded:\n  - ${problems.join('\n  - ')}\n` +
+         'Shorten the copy, add explicit line breaks in the CSV, or use a smaller image.');
   }
 }
 
@@ -321,7 +388,8 @@ async function main() {
         month,
         htmlFile,
         checks: slide.checks,
-        label: `post "${postId}", ${slide.name} (slide-${pad2(index + 1)}.png)`,
+        minGapBelowText: slide.minGapBelowText,
+        label: `post "${postId}", ${slide.name} [${slide.template} template] (slide-${pad2(index + 1)}.png)`,
         pngFile: path.join(OUTPUT_DIR, month, postId, `slide-${pad2(index + 1)}.png`),
       });
     });
@@ -342,7 +410,7 @@ async function main() {
 
   try {
     for (const job of jobs) {
-      await renderSlide(page, job.htmlFile, job.checks, job.label);
+      await renderSlide(page, job.htmlFile, job);
       fs.mkdirSync(path.dirname(job.pngFile), { recursive: true });
       await page.screenshot({
         path: job.pngFile,
