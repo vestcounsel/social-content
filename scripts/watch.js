@@ -24,6 +24,8 @@ const { spawn } = require('child_process');
 const { pathToFileURL } = require('url');
 const { chromium } = require('playwright');
 
+const { renderFile } = require('./render-html');
+
 const ROOT = path.resolve(__dirname, '..');
 const WIDTH = 1080;
 const HEIGHT = 1350;
@@ -53,18 +55,7 @@ async function getPage() {
 
 async function renderHtml(htmlFile, pngFile) {
   const p = await getPage();
-  await p.goto(pathToFileURL(htmlFile).href, { waitUntil: 'load' });
-  await p.addStyleTag({
-    content: '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important;}',
-  });
-  await p.evaluate(async () => {
-    await document.fonts.ready;
-    const images = Array.from(document.images)
-      .filter((img) => img.getAttribute('src') && img.style.display !== 'none');
-    await Promise.all(images.map((img) => img.decode().catch(() => {})));
-  });
-  await p.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
-  await p.screenshot({ path: pngFile, clip: { x: 0, y: 0, width: WIDTH, height: HEIGHT } });
+  await renderFile(p, htmlFile, pngFile);
   console.log(`${stamp()}  updated ${path.relative(ROOT, pngFile)}`);
 }
 
