@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: none;
+      }
+
+      .cls-8, .cls-9 {
+        fill: #e0ddd6;
+      }
+
+      .cls-10 {
+        fill: url(#htD_3);
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-3, .cls-5, .cls-9, .cls-13, .cls-14 {
+        isolation: isolate;
+      }
+
+      .cls-10, .cls-12, .cls-13 {
+        opacity: .9;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke: #0c0c0c;
+      }
+
+      .cls-2, .cls-6 {
+        stroke-width: 1.2px;
+      }
+
+      .cls-11 {
+        opacity: .7;
+      }
+
+      .cls-11, .cls-12, .cls-15 {
+        fill: #0c0c0c;
+      }
+
+      .cls-3 {
+        opacity: .5;
+        stroke-width: .2px;
+      }
+
+      .cls-4 {
+        stroke-width: 2px;
+      }
+
+      .cls-4, .cls-6, .cls-7 {
+        stroke-linecap: round;
+      }
+
+      .cls-5 {
+        opacity: .6;
+        stroke: gray;
+        stroke-width: .4px;
+      }
+
+      .cls-9 {
+        opacity: .4;
+      }
+
+      .cls-13 {
+        fill: #b32600;
+      }
+
+      .cls-6 {
+        stroke: #b32600;
+        stroke-linejoin: round;
+      }
+
+      .cls-7 {
+        stroke: #454545;
+        stroke-width: .8px;
+      }
+
+      .cls-14 {
+        fill: #fff;
+        opacity: .25;
+      }
+    </style>
+    <pattern id="htD_3" data-name="htD 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(88 -3667) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-15" cx=".35" cy=".35" r=".05"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect class="cls-8" x="14.52" y="25.49" width="56.87" height="74.18" rx=".8" ry=".8"/>
+  <rect class="cls-10" x="14.52" y="25.49" width="56.87" height="74.18" rx=".8" ry=".8"/>
+  <rect class="cls-9" x="14.52" y="25.49" width="56.87" height="74.18" rx=".8" ry=".8"/>
+  <rect class="cls-3" x="14.52" y="25.49" width="56.87" height="74.18" rx=".8" ry=".8"/>
+  <path class="cls-13" d="M23.18,37.86h27.2c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24h-27.2c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <path class="cls-11" d="M23.18,46.26h39.56c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24H23.18c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <path class="cls-11" d="M23.18,54.67h39.56c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24H23.18c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <path class="cls-12" d="M23.18,63.08h27.2c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24h-27.2c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <path class="cls-11" d="M23.18,71.48h39.56c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24H23.18c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <path class="cls-11" d="M23.18,79.89h39.56c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24H23.18c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <path class="cls-12" d="M23.18,88.3h27.2c.68,0,1.24.55,1.24,1.24h0c0,.68-.55,1.24-1.24,1.24h-27.2c-.68,0-1.24-.55-1.24-1.24h0c0-.68.55-1.24,1.24-1.24Z"/>
+  <g>
+    <circle class="cls-14" cx="66.45" cy="82.36" r="21.26"/>
+    <circle class="cls-2" cx="66.45" cy="82.36" r="21.26"/>
+    <circle class="cls-5" cx="66.45" cy="82.36" r="21.26"/>
+    <line class="cls-4" x1="81.78" y1="97.69" x2="96.61" y2="112.53"/>
+    <line class="cls-7" x1="81.78" y1="97.69" x2="96.61" y2="112.53"/>
+    <polyline class="cls-6" points="58.54 82.86 64.47 88.79 75.84 75.93"/>
+  </g>
+</svg>

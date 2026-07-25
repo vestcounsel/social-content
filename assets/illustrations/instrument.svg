@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12 {
+        fill: none;
+      }
+
+      .cls-13 {
+        mask: url(#mask);
+      }
+
+      .cls-14 {
+        stroke-width: .25px;
+      }
+
+      .cls-14, .cls-15, .cls-16, .cls-17, .cls-11 {
+        stroke: #454545;
+      }
+
+      .cls-14, .cls-15, .cls-16, .cls-18 {
+        fill: #282828;
+      }
+
+      .cls-19, .cls-17, .cls-20, .cls-21 {
+        fill: gray;
+      }
+
+      .cls-22 {
+        fill: #1a1a1a;
+        stroke: #282828;
+      }
+
+      .cls-22, .cls-17, .cls-6, .cls-8, .cls-10, .cls-23, .cls-11 {
+        stroke-width: .1px;
+      }
+
+      .cls-24, .cls-25, .cls-23 {
+        fill: #454545;
+      }
+
+      .cls-15, .cls-2, .cls-25 {
+        stroke-width: .15px;
+      }
+
+      .cls-16, .cls-12 {
+        stroke-width: .2px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-25, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-23, .cls-12 {
+        stroke: gray;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-26, .cls-27, .cls-28, .cls-7, .cls-8, .cls-9, .cls-20, .cls-21, .cls-10, .cls-11, .cls-12 {
+        isolation: isolate;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-7, .cls-8, .cls-9, .cls-20 {
+        opacity: .6;
+      }
+
+      .cls-3 {
+        stroke-width: .14px;
+      }
+
+      .cls-4 {
+        stroke-width: .13px;
+      }
+
+      .cls-29 {
+        mask: url(#mask-2);
+      }
+
+      .cls-30 {
+        mask: url(#mask-3);
+      }
+
+      .cls-31 {
+        mask: url(#mask-4);
+      }
+
+      .cls-32 {
+        mask: url(#mask-5);
+      }
+
+      .cls-33 {
+        mask: url(#mask-7);
+      }
+
+      .cls-34 {
+        mask: url(#mask-6);
+      }
+
+      .cls-35 {
+        mask: url(#mask-1);
+      }
+
+      .cls-36 {
+        mask: url(#mask-8);
+      }
+
+      .cls-5, .cls-27, .cls-28 {
+        opacity: .5;
+      }
+
+      .cls-5, .cls-9 {
+        stroke-width: .12px;
+      }
+
+      .cls-37 {
+        fill: #fff;
+      }
+
+      .cls-6, .cls-26, .cls-21, .cls-12 {
+        opacity: .4;
+      }
+
+      .cls-26, .cls-27 {
+        fill: url(#htC4);
+      }
+
+      .cls-28 {
+        fill: url(#htA4);
+      }
+
+      .cls-38 {
+        fill: #0c0c0c;
+      }
+
+      .cls-7 {
+        stroke-width: .08px;
+      }
+
+      .cls-10, .cls-11 {
+        opacity: .3;
+      }
+    </style>
+    <pattern id="htC4" x="0" y="0" width=".6" height=".6" patternTransform="translate(318.5 3303.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .6 .6">
+      <g>
+        <rect class="cls-1" x="0" y="0" width=".6" height=".6"/>
+        <circle class="cls-38" cx=".3" cy=".3" r=".08"/>
+      </g>
+    </pattern>
+    <mask id="mask" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-1" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-2" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-2" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-3" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <pattern id="htA4" x="0" y="0" width=".7" height=".7" patternTransform="translate(318.5 3299.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-38" cx=".35" cy=".35" r=".26"/>
+      </g>
+    </pattern>
+    <mask id="mask-3" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-4" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-4" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-5" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-5" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-6" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-6" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-7" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-7" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-8" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+    <mask id="mask-8" x="-128.21" y="3.49" width="282" height="282.21" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-929a1g-9" data-name="imagine-text-gaps-929a1g">
+        <rect class="cls-37" x="-86.8" y="44.08" width="199.18" height="201.02" transform="translate(-90.8 42.91) rotate(-40.48)"/>
+      </g>
+    </mask>
+  </defs>
+  <rect class="cls-15" x="29.79" y="31.33" width="5.16" height="25.82" rx=".6" ry=".6" transform="translate(-20.97 31.6) rotate(-40.48)"/>
+  <path class="cls-27" d="M22.48,35.7l3.02-2.57c.25-.22.63-.19.85.07l15.98,18.73c.22.25.19.63-.07.85l-3.02,2.57c-.25.22-.63.19-.85-.07l-15.98-18.73c-.22-.25-.19-.63.07-.85Z"/>
+  <rect class="cls-24" x="20.69" y="38.8" width="3.69" height="1.48" rx=".28" ry=".28" transform="translate(-20.27 24.09) rotate(-40.48)"/>
+  <rect class="cls-24" x="23.09" y="41.6" width="3.69" height="1.48" rx=".28" ry=".28" transform="translate(-21.52 26.32) rotate(-40.48)"/>
+  <rect class="cls-24" x="25.48" y="44.41" width="3.69" height="1.48" rx=".28" ry=".28" transform="translate(-22.77 28.54) rotate(-40.48)"/>
+  <rect class="cls-24" x="27.42" y="33.05" width="3.69" height="1.48" rx=".28" ry=".28" transform="translate(-14.93 27.09) rotate(-40.48)"/>
+  <rect class="cls-24" x="29.82" y="35.86" width="3.69" height="1.48" rx=".28" ry=".28" transform="translate(-16.18 29.31) rotate(-40.48)"/>
+  <rect class="cls-24" x="32.21" y="38.66" width="3.69" height="1.48" rx=".28" ry=".28" transform="translate(-17.43 31.54) rotate(-40.48)"/>
+  <circle class="cls-17" cx="20.99" cy="40.85" r=".92"/>
+  <circle class="cls-17" cx="23.39" cy="43.66" r=".92"/>
+  <circle class="cls-17" cx="25.78" cy="46.46" r=".92"/>
+  <circle class="cls-17" cx="30.81" cy="32.47" r=".92"/>
+  <circle class="cls-17" cx="33.21" cy="35.28" r=".92"/>
+  <circle class="cls-17" cx="35.6" cy="38.08" r=".92"/>
+  <rect class="cls-19" x="36.35" y="52.24" width="6.64" height="1.11" rx=".2" ry=".2" transform="translate(-24.78 38.39) rotate(-40.48)"/>
+  <rect class="cls-22" x="58.35" y="45.71" width="4.06" height="62.7" rx=".3" ry=".3" transform="translate(-35.58 57.64) rotate(-40.48)"/>
+  <line class="cls-2" x1="41.08" y1="58.14" x2="44.73" y2="55.03"/>
+  <line class="cls-2" x1="44.43" y1="62.07" x2="48.08" y2="58.96"/>
+  <g class="cls-13">
+    <line class="cls-2" x1="47.54" y1="65.72" x2="51.19" y2="62.6"/>
+  </g>
+  <g class="cls-35">
+    <line class="cls-2" x1="50.42" y1="69.08" x2="54.06" y2="65.97"/>
+  </g>
+  <line class="cls-4" x1="53.05" y1="72.17" x2="56.7" y2="69.06"/>
+  <line class="cls-4" x1="55.45" y1="74.97" x2="59.09" y2="71.86"/>
+  <line class="cls-4" x1="57.6" y1="77.5" x2="61.25" y2="74.39"/>
+  <line class="cls-5" x1="59.76" y1="80.02" x2="63.4" y2="76.91"/>
+  <line class="cls-5" x1="61.67" y1="82.27" x2="65.32" y2="79.16"/>
+  <line class="cls-5" x1="63.47" y1="84.37" x2="67.11" y2="81.26"/>
+  <line class="cls-6" x1="65.02" y1="86.2" x2="68.67" y2="83.08"/>
+  <line class="cls-6" x1="66.46" y1="87.88" x2="70.11" y2="84.77"/>
+  <circle class="cls-20" cx="50.56" cy="65.56" r=".55"/>
+  <circle class="cls-20" cx="56.07" cy="72.01" r=".55"/>
+  <circle class="cls-20" cx="60.86" cy="77.63" r=".55"/>
+  <path class="cls-14" d="M80.73,100.91c-8.23,4.76-15.2,4.73-20.92-.09-5.72-4.81-8.38-9.82-7.97-15.02.41-5.2,2.86-8.58,7.34-10.15"/>
+  <path class="cls-14" d="M80.73,100.91c5.99-7.38,7.06-14.27,3.21-20.68-3.85-6.41-8.38-9.82-13.58-10.23-5.2-.41-8.92,1.47-11.17,5.66"/>
+  <path class="cls-16" d="M51.84,85.81c-3.6,1.46-6.11,1.17-7.52-.86-1.41-2.03-1.3-4.55.34-7.56"/>
+  <path class="cls-16" d="M70.36,70.01c2.01-3.33,2.12-5.85.34-7.56-1.78-1.71-4.29-2-7.52-.86"/>
+  <path class="cls-14" d="M44.66,77.39c-4.33-.34-8.54-2.81-12.63-7.41-6.17-6.85-5.34-14.59,2.49-23.22,9.75-6.38,17.52-5.98,23.32,1.19,3.9,4.76,5.67,9.3,5.33,13.63"/>
+  <path class="cls-26" d="M80.73,100.91c-8.23,4.76-15.2,4.73-20.92-.09-5.72-4.81-8.38-9.82-7.97-15.02-3.6,1.46-6.11,1.17-7.52-.86-1.41-2.03-1.3-4.55.34-7.56-4.33-.34-8.54-2.81-12.63-7.41-6.17-6.85-5.34-14.59,2.49-23.22,9.75-6.38,17.52-5.98,23.32,1.19,3.9,4.76,5.67,9.3,5.33,13.63,6.8,2.28,9.3,2.57,7.52.86,4.98,5.45,4.86,7.97-.34,7.56-5.2-.41-8.92,1.47-11.17,5.66,20.36,9.46,28.61,10.98,24.75,4.57l-3.21,20.68Z"/>
+  <g class="cls-29">
+    <path class="cls-10" d="M80.73,100.91c-8.23,4.76-15.2,4.73-20.92-.09-5.72-4.81-8.38-9.82-7.97-15.02-3.6,1.46-6.11,1.17-7.52-.86-1.41-2.03-1.3-4.55.34-7.56-4.33-.34-8.54-2.81-12.63-7.41-6.17-6.85-5.34-14.59,2.49-23.22,9.75-6.38,17.52-5.98,23.32,1.19,3.9,4.76,5.67,9.3,5.33,13.63,6.8,2.28,9.3,2.57,7.52.86,4.98,5.45,4.86,7.97-.34,7.56-5.2-.41-8.92,1.47-11.17,5.66,20.36,9.46,28.61,10.98,24.75,4.57l-3.21,20.68Z"/>
+  </g>
+  <circle class="cls-38" cx="46.73" cy="61.07" r="7.01"/>
+  <circle class="cls-28" cx="46.73" cy="61.07" r="7.01"/>
+  <circle class="cls-38" cx="46.73" cy="61.07" r="5.53"/>
+  <circle class="cls-12" cx="46.73" cy="61.07" r="7.01"/>
+  <circle class="cls-11" cx="46.73" cy="61.07" r="6.09"/>
+  <rect class="cls-23" x="59.97" y="83.25" width="13.28" height="2.21" rx=".3" ry=".3" transform="translate(-38.82 63.43) rotate(-40.48)"/>
+  <rect class="cls-21" x="60.09" y="84.13" width="13.28" height=".74" rx=".1" ry=".1" transform="translate(-38.88 63.54) rotate(-40.48)"/>
+  <circle class="cls-19" cx="62.66" cy="86.27" r=".74"/>
+  <circle class="cls-19" cx="64.35" cy="84.84" r=".74"/>
+  <circle class="cls-19" cx="66.03" cy="83.4" r=".74"/>
+  <circle class="cls-19" cx="67.71" cy="81.96" r=".74"/>
+  <circle class="cls-19" cx="69.4" cy="80.53" r=".74"/>
+  <g class="cls-30">
+    <line class="cls-7" x1="38.77" y1="54.29" x2="62.98" y2="88.91"/>
+  </g>
+  <g class="cls-31">
+    <line class="cls-7" x1="39.05" y1="54.05" x2="64.1" y2="87.96"/>
+  </g>
+  <g class="cls-32">
+    <line class="cls-8" x1="39.33" y1="53.82" x2="65.22" y2="87"/>
+  </g>
+  <g class="cls-34">
+    <line class="cls-8" x1="40.03" y1="53.22" x2="66.48" y2="85.92"/>
+  </g>
+  <g class="cls-33">
+    <line class="cls-9" x1="40.73" y1="52.62" x2="69.15" y2="83.65"/>
+  </g>
+  <g class="cls-36">
+    <line class="cls-3" x1="41.29" y1="52.14" x2="70.83" y2="82.21"/>
+  </g>
+  <circle class="cls-25" cx="80.97" cy="101.19" r="1.48"/>
+  <circle class="cls-18" cx="80.97" cy="101.19" r=".74"/>
+</svg>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        font-family: Montserrat-Bold, Montserrat;
+        font-size: 10.19px;
+        font-weight: 700;
+        opacity: .85;
+      }
+
+      .cls-4, .cls-2, .cls-5, .cls-6, .cls-7, .cls-8, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4, .cls-8 {
+        fill: #b32600;
+      }
+
+      .cls-2 {
+        stroke: #b32600;
+      }
+
+      .cls-2, .cls-5 {
+        opacity: .7;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 1.4px;
+      }
+
+      .cls-9 {
+        stroke-width: .15px;
+      }
+
+      .cls-9, .cls-10 {
+        stroke: #454545;
+      }
+
+      .cls-9, .cls-11 {
+        fill: #1a1a1a;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-12 {
+        fill: #454545;
+      }
+
+      .cls-6 {
+        opacity: .4;
+      }
+
+      .cls-7 {
+        opacity: .5;
+      }
+
+      .cls-10 {
+        fill: #0c0c0c;
+        stroke-width: .2px;
+      }
+
+      .cls-8 {
+        opacity: .6;
+      }
+
+      .cls-3 {
+        opacity: .06;
+        stroke: #edeae3;
+      }
+
+      .cls-13 {
+        letter-spacing: 0em;
+      }
+
+      .cls-12 {
+        stroke: gray;
+        stroke-width: .1px;
+      }
+
+      .cls-14 {
+        letter-spacing: 0em;
+      }
+
+      .cls-15 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="21.28" y="41.97" width="73.18" height="16.67" rx="2.32" ry="2.32"/>
+    </clipPath>
+  </defs>
+  <rect class="cls-10" x="23.13" y="55.87" width="69.48" height="50.95" rx=".6" ry=".6"/>
+  <rect class="cls-11" x="27.76" y="61.43" width="60.21" height="39.37" rx=".3" ry=".3"/>
+  <rect class="cls-5" x="31.47" y="65.13" width="37.05" height="3.24" rx=".2" ry=".2"/>
+  <rect class="cls-7" x="31.47" y="71.62" width="27.79" height="2.78" rx=".2" ry=".2"/>
+  <rect class="cls-8" x="31.47" y="77.17" width="32.42" height="2.78" rx=".2" ry=".2"/>
+  <rect class="cls-6" x="31.47" y="82.73" width="23.16" height="2.78" rx=".2" ry=".2"/>
+  <text class="cls-4" transform="translate(68.66 87.36)"><tspan class="cls-14" x="0" y="0">0</tspan><tspan class="cls-13" x="6.86" y="0">1</tspan></text>
+  <rect class="cls-9" x="21.28" y="41.97" width="73.18" height="16.67" rx=".5" ry=".5"/>
+  <g class="cls-15">
+    <g>
+      <line class="cls-3" x1="23.13" y1="41.97" x2="23.13" y2="58.65"/>
+      <line class="cls-2" x1="32.39" y1="41.97" x2="32.39" y2="58.65"/>
+      <line class="cls-3" x1="44.44" y1="41.97" x2="44.44" y2="58.65"/>
+      <line class="cls-2" x1="53.7" y1="41.97" x2="53.7" y2="58.65"/>
+      <line class="cls-3" x1="65.74" y1="41.97" x2="65.74" y2="58.65"/>
+      <line class="cls-2" x1="75.01" y1="41.97" x2="75.01" y2="58.65"/>
+      <line class="cls-3" x1="87.05" y1="41.97" x2="87.05" y2="58.65"/>
+    </g>
+  </g>
+  <circle class="cls-12" cx="27.76" cy="50.31" r="2.78"/>
+</svg>

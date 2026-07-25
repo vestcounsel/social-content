@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        opacity: .12;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-2, .cls-8, .cls-9, .cls-10 {
+        isolation: isolate;
+      }
+
+      .cls-3, .cls-4, .cls-11 {
+        fill: #0c0c0c;
+      }
+
+      .cls-4 {
+        opacity: .7;
+      }
+
+      .cls-12, .cls-5, .cls-6, .cls-7 {
+        fill: #d4cfc7;
+      }
+
+      .cls-5 {
+        opacity: .55;
+      }
+
+      .cls-6 {
+        opacity: .68;
+      }
+
+      .cls-7 {
+        opacity: .42;
+      }
+
+      .cls-2 {
+        opacity: .5;
+        stroke: #bbb;
+        stroke-width: .05px;
+      }
+
+      .cls-13 {
+        fill: #b32600;
+      }
+
+      .cls-8 {
+        fill: url(#htR);
+      }
+
+      .cls-8, .cls-9, .cls-10 {
+        opacity: .9;
+      }
+
+      .cls-9 {
+        fill: url(#htQ);
+      }
+
+      .cls-10 {
+        fill: url(#htP);
+      }
+    </style>
+    <pattern id="htP" x="0" y="0" width=".8" height=".8" patternTransform="translate(2335.54 5921.34) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .8 .8">
+      <g>
+        <rect class="cls-1" x="0" y="0" width=".8" height=".8"/>
+        <circle class="cls-11" cx=".4" cy=".4" r=".28"/>
+      </g>
+    </pattern>
+    <pattern id="htQ" x="0" y="0" width=".8" height=".8" patternTransform="translate(2335.54 5921.34) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .8 .8">
+      <g>
+        <rect class="cls-1" x="0" y="0" width=".8" height=".8"/>
+        <circle class="cls-11" cx=".4" cy=".4" r=".17"/>
+      </g>
+    </pattern>
+    <pattern id="htR" x="0" y="0" width=".8" height=".8" patternTransform="translate(2335.54 5921.34) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .8 .8">
+      <g>
+        <rect class="cls-1" x="0" y="0" width=".8" height=".8"/>
+        <circle class="cls-11" cx=".4" cy=".4" r=".08"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect class="cls-1" x="27.93" y="29.91" width="54.3" height="87.58" rx=".6" ry=".6"/>
+  <polygon class="cls-12" points="40.2 110.48 50.7 33.41 59.46 33.41 69.97 110.48 40.2 110.48"/>
+  <rect class="cls-10" x="40.2" y="33.41" width="29.78" height="26.27"/>
+  <rect class="cls-7" x="40.2" y="33.41" width="29.78" height="26.27"/>
+  <rect class="cls-9" x="40.2" y="59.68" width="29.78" height="24.52"/>
+  <rect class="cls-5" x="40.2" y="59.68" width="29.78" height="24.52"/>
+  <rect class="cls-8" x="40.2" y="84.2" width="29.78" height="26.27"/>
+  <rect class="cls-6" x="40.2" y="84.2" width="29.78" height="26.27"/>
+  <rect class="cls-4" x="43.7" y="106.97" width="22.77" height="5.25" rx=".4" ry=".4"/>
+  <ellipse class="cls-3" cx="55.08" cy="115.73" rx="9.63" ry="3.15"/>
+  <rect class="cls-13" x="38.44" y="110.13" width="2.45" height="1.4" rx=".2" ry=".2"/>
+  <rect class="cls-13" x="69.27" y="110.13" width="2.45" height="1.4" rx=".2" ry=".2"/>
+  <line class="cls-2" x1="50.7" y1="29.91" x2="50.7" y2="110.48"/>
+  <line class="cls-2" x1="59.46" y1="29.91" x2="59.46" y2="110.48"/>
+</svg>

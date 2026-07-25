@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        fill: url(#ht-w3);
+      }
+
+      .cls-4, .cls-5, .cls-2, .cls-3, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        isolation: isolate;
+      }
+
+      .cls-4, .cls-5, .cls-3, .cls-6 {
+        opacity: .9;
+      }
+
+      .cls-5 {
+        fill: url(#ht-w2);
+      }
+
+      .cls-2 {
+        opacity: .3;
+        stroke-width: .2px;
+      }
+
+      .cls-2, .cls-3, .cls-10 {
+        stroke: #fff;
+      }
+
+      .cls-3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.4px;
+      }
+
+      .cls-11 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        fill: url(#ht-w);
+      }
+
+      .cls-12, .cls-7, .cls-8, .cls-9 {
+        fill: #8a1e00;
+      }
+
+      .cls-7 {
+        opacity: .7;
+      }
+
+      .cls-8 {
+        opacity: .6;
+      }
+
+      .cls-9 {
+        opacity: .5;
+      }
+
+      .cls-10 {
+        opacity: .2;
+        stroke-width: .05px;
+      }
+    </style>
+    <pattern id="ht-w" x="0" y="0" width="1" height="1" patternTransform="translate(-991.31 1770.84) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 1 1">
+      <g>
+        <rect class="cls-1" width="1" height="1"/>
+        <circle class="cls-11" cx=".5" cy=".5" r=".24"/>
+      </g>
+    </pattern>
+    <pattern id="ht-w2" x="0" y="0" width="1" height="1" patternTransform="translate(-991.31 1770.84) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 1 1">
+      <g>
+        <rect class="cls-1" width="1" height="1"/>
+        <circle class="cls-11" cx=".5" cy=".5" r=".15"/>
+      </g>
+    </pattern>
+    <pattern id="ht-w3" x="0" y="0" width="1" height="1" patternTransform="translate(-991.31 1770.84) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 1 1">
+      <g>
+        <rect class="cls-1" width="1" height="1"/>
+        <circle class="cls-11" cx=".5" cy=".5" r=".08"/>
+      </g>
+    </pattern>
+  </defs>
+  <path class="cls-12" d="M54.84,16.42l43.77,11.83v37.85c0,22.08-14.59,38.64-43.77,49.68-29.18-11.04-43.77-27.6-43.77-49.68V28.24l43.77-11.83Z"/>
+  <rect class="cls-6" x="11.07" y="28.24" width="87.53" height="28.39"/>
+  <rect class="cls-9" x="11.07" y="28.24" width="87.53" height="28.39"/>
+  <rect class="cls-5" x="11.07" y="56.63" width="87.53" height="26.02"/>
+  <rect class="cls-8" x="11.07" y="56.63" width="87.53" height="26.02"/>
+  <rect class="cls-4" x="11.07" y="82.66" width="87.53" height="33.12"/>
+  <rect class="cls-7" x="11.07" y="82.66" width="87.53" height="33.12"/>
+  <path class="cls-2" d="M54.84,16.42l43.77,11.83v37.85c0,22.08-14.59,38.64-43.77,49.68-29.18-11.04-43.77-27.6-43.77-49.68V28.24l43.77-11.83Z"/>
+  <path class="cls-3" d="M44.19,61.37l8.28,8.99,14.19-16.56"/>
+  <path class="cls-10" d="M54.84,16.42l43.77,11.83"/>
+  <path class="cls-10" d="M54.84,16.42L11.07,28.24"/>
+</svg>

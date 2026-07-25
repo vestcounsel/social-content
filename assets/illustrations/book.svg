@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: #111;
+      }
+
+      .cls-5 {
+        stroke: #222;
+        stroke-width: .05px;
+      }
+
+      .cls-8 {
+        fill: url(#htC_3);
+      }
+
+      .cls-8, .cls-9, .cls-10, .cls-11, .cls-6, .cls-7, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+        isolation: isolate;
+      }
+
+      .cls-8, .cls-9, .cls-10, .cls-11, .cls-18 {
+        opacity: .9;
+      }
+
+      .cls-9 {
+        fill: url(#htB_3);
+      }
+
+      .cls-10 {
+        fill: url(#htD_2);
+      }
+
+      .cls-11 {
+        fill: url(#htA_2);
+      }
+
+      .cls-6, .cls-16 {
+        opacity: .55;
+      }
+
+      .cls-7 {
+        opacity: .4;
+      }
+
+      .cls-21, .cls-12, .cls-13, .cls-14, .cls-15 {
+        fill: #1e1e1e;
+      }
+
+      .cls-12 {
+        opacity: .48;
+      }
+
+      .cls-13, .cls-20 {
+        opacity: .6;
+      }
+
+      .cls-14 {
+        opacity: .35;
+      }
+
+      .cls-15 {
+        opacity: .72;
+      }
+
+      .cls-2 {
+        stroke: #383838;
+        stroke-width: .2px;
+      }
+
+      .cls-16, .cls-17, .cls-22 {
+        fill: #b32600;
+      }
+
+      .cls-17 {
+        opacity: .42;
+      }
+
+      .cls-23, .cls-19, .cls-20 {
+        fill: #fff;
+      }
+
+      .cls-24 {
+        fill: #0c0c0c;
+      }
+
+      .cls-3 {
+        stroke: #2a2a2a;
+        stroke-width: .1px;
+      }
+
+      .cls-18 {
+        fill: #f5f2ed;
+      }
+
+      .cls-19 {
+        opacity: .3;
+      }
+    </style>
+    <pattern id="htA_2" data-name="htA 2" x="0" y="0" width=".7" height=".7" patternTransform="translate(3376.5 -4852.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-23" cx=".35" cy=".35" r=".29"/>
+      </g>
+    </pattern>
+    <pattern id="htB_3" data-name="htB 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(3376.5 -4852.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-23" cx=".35" cy=".35" r=".19"/>
+      </g>
+    </pattern>
+    <pattern id="htC_3" data-name="htC 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(3376.5 -4852.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-23" cx=".35" cy=".35" r=".11"/>
+      </g>
+    </pattern>
+    <pattern id="htD_2" data-name="htD 2" x="0" y="0" width=".7" height=".7" patternTransform="translate(3376.5 -4852.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-23" cx=".35" cy=".35" r=".05"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect class="cls-21" x="24.67" y="24.87" width="61.75" height="88.22" rx=".4" ry=".4"/>
+  <rect class="cls-11" x="24.67" y="24.87" width="61.75" height="22.05"/>
+  <rect class="cls-14" x="24.67" y="24.87" width="61.75" height="22.05"/>
+  <rect class="cls-9" x="24.67" y="46.93" width="61.75" height="22.05"/>
+  <rect class="cls-12" x="24.67" y="46.93" width="61.75" height="22.05"/>
+  <rect class="cls-8" x="24.67" y="68.98" width="61.75" height="22.05"/>
+  <rect class="cls-13" x="24.67" y="68.98" width="61.75" height="22.05"/>
+  <rect class="cls-10" x="24.67" y="91.03" width="61.75" height="22.05"/>
+  <rect class="cls-15" x="24.67" y="91.03" width="61.75" height="22.05"/>
+  <rect class="cls-2" x="24.67" y="24.87" width="61.75" height="88.22" rx=".4" ry=".4"/>
+  <rect class="cls-5" x="24.67" y="24.87" width="2.65" height="88.22"/>
+  <rect class="cls-22" x="24.67" y="24.87" width="61.75" height="12.35" rx=".4" ry=".4"/>
+  <rect class="cls-9" x="24.67" y="24.87" width="61.75" height="5.73"/>
+  <rect class="cls-17" x="24.67" y="24.87" width="61.75" height="5.73"/>
+  <rect class="cls-8" x="24.67" y="30.61" width="61.75" height="6.62"/>
+  <rect class="cls-16" x="24.67" y="30.61" width="61.75" height="6.62"/>
+  <rect class="cls-20" x="29.08" y="42.07" width="35.29" height="2.21" rx=".3" ry=".3"/>
+  <rect class="cls-19" x="29.08" y="46.04" width="48.52" height="1.76" rx=".3" ry=".3"/>
+  <rect class="cls-19" x="29.08" y="49.57" width="39.7" height="1.76" rx=".3" ry=".3"/>
+  <rect class="cls-4" x="29.08" y="55.75" width="52.93" height="30.88" rx=".4" ry=".4"/>
+  <rect class="cls-11" x="29.08" y="55.75" width="52.93" height="13.23"/>
+  <rect class="cls-7" x="29.08" y="55.75" width="52.93" height="13.23"/>
+  <rect class="cls-9" x="29.08" y="68.98" width="52.93" height="17.64"/>
+  <rect class="cls-6" x="29.08" y="68.98" width="52.93" height="17.64"/>
+  <rect class="cls-3" x="29.08" y="55.75" width="52.93" height="30.88" rx=".4" ry=".4"/>
+  <rect class="cls-18" x="29.08" y="93.68" width="17.64" height="11.91" rx=".2" ry=".2"/>
+  <rect class="cls-24" x="30.19" y="94.56" width=".88" height="8.82"/>
+  <rect class="cls-24" x="31.73" y="94.56" width=".44" height="8.82"/>
+  <rect class="cls-24" x="32.83" y="94.56" width=".88" height="8.82"/>
+  <rect class="cls-24" x="34.38" y="94.56" width=".44" height="8.82"/>
+  <rect class="cls-24" x="35.48" y="94.56" width=".66" height="8.82"/>
+  <rect class="cls-24" x="36.8" y="94.56" width=".88" height="8.82"/>
+  <rect class="cls-24" x="38.35" y="94.56" width=".44" height="8.82"/>
+  <rect class="cls-24" x="39.45" y="94.56" width=".66" height="8.82"/>
+  <rect class="cls-24" x="40.77" y="94.56" width=".44" height="8.82"/>
+  <rect class="cls-24" x="41.88" y="94.56" width=".88" height="8.82"/>
+  <rect class="cls-24" x="43.42" y="94.56" width=".44" height="8.82"/>
+  <rect class="cls-24" x="44.52" y="94.56" width=".66" height="8.82"/>
+</svg>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        fill: url(#htC_3);
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        opacity: .9;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-3, .cls-12, .cls-13 {
+        isolation: isolate;
+      }
+
+      .cls-7 {
+        fill: url(#htB_3);
+      }
+
+      .cls-8 {
+        fill: url(#htA_2);
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #333;
+        stroke-width: .1px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 4;
+      }
+
+      .cls-14, .cls-9, .cls-10, .cls-11 {
+        fill: #1e1e1e;
+      }
+
+      .cls-9 {
+        opacity: .5;
+      }
+
+      .cls-10 {
+        opacity: .36;
+      }
+
+      .cls-11 {
+        opacity: .62;
+      }
+
+      .cls-3, .cls-13 {
+        opacity: .4;
+      }
+
+      .cls-12 {
+        opacity: .42;
+      }
+
+      .cls-12, .cls-15 {
+        fill: #b32600;
+      }
+
+      .cls-16 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        stroke: #2e2e2e;
+      }
+
+      .cls-4, .cls-5 {
+        stroke-width: .15px;
+      }
+
+      .cls-5 {
+        stroke: #8a1c00;
+      }
+
+      .cls-13, .cls-17 {
+        fill: #2a2a2a;
+      }
+    </style>
+    <pattern id="htA_2" data-name="htA 2" x="0" y="0" width=".7" height=".7" patternTransform="translate(-662.51 -86.99) rotate(-5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-16" cx=".35" cy=".35" r=".29"/>
+      </g>
+    </pattern>
+    <pattern id="htB_3" data-name="htB 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(-662.51 -86.99) rotate(-5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-16" cx=".35" cy=".35" r=".19"/>
+      </g>
+    </pattern>
+    <pattern id="htC_3" data-name="htC 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(-662.51 -86.99) rotate(-5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-16" cx=".35" cy=".35" r=".11"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect class="cls-14" x="28.33" y="48.27" width="60.87" height="39.39" rx=".6" ry=".6" transform="translate(-5.7 5.38) rotate(-5)"/>
+  <polygon class="cls-8" points="26.73 51 87.38 45.69 88.62 59.96 27.98 65.27 26.73 51"/>
+  <rect class="cls-10" x="27.24" y="48.32" width="60.87" height="14.32" transform="translate(-4.62 5.24) rotate(-5)"/>
+  <polygon class="cls-7" points="27.98 65.27 88.62 59.96 89.87 74.23 29.23 79.53 27.98 65.27"/>
+  <rect class="cls-9" x="28.49" y="62.59" width="60.87" height="14.32" transform="translate(-5.85 5.4) rotate(-5)"/>
+  <polygon class="cls-6" points="29.23 79.53 89.87 74.23 90.81 84.93 30.17 90.24 29.23 79.53"/>
+  <rect class="cls-11" x="29.58" y="76.86" width="60.87" height="10.74" transform="translate(-6.94 5.54) rotate(-5)"/>
+  <rect class="cls-4" x="28.33" y="48.27" width="60.87" height="39.39" rx=".6" ry=".6" transform="translate(-5.7 5.38) rotate(-5)"/>
+  <path class="cls-17" d="M26.73,51l31.88,15.18,28.76-20.49-60.64,5.31Z"/>
+  <path class="cls-8" d="M26.73,51l31.88,15.18,28.76-20.49-60.64,5.31Z"/>
+  <path class="cls-13" d="M26.73,51l31.88,15.18,28.76-20.49-60.64,5.31Z"/>
+  <path class="cls-2" d="M26.73,51l31.88,15.18,28.76-20.49-60.64,5.31Z"/>
+  <line class="cls-3" x1="30.17" y1="90.24" x2="58.62" y2="66.18"/>
+  <line class="cls-3" x1="90.81" y1="84.93" x2="58.62" y2="66.18"/>
+  <circle class="cls-15" cx="59.24" cy="73.31" r="4.3"/>
+  <circle class="cls-6" cx="59.24" cy="73.31" r="4.3"/>
+  <circle class="cls-12" cx="59.24" cy="73.31" r="4.3"/>
+  <circle class="cls-5" cx="59.24" cy="73.31" r="2.86"/>
+</svg>

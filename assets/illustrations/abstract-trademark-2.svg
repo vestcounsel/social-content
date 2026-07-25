@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#htB_3);
+      }
+
+      .cls-3, .cls-4 {
+        opacity: .9;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: url(#htA_6);
+      }
+
+      .cls-5, .cls-9 {
+        fill: #0c0c0c;
+      }
+
+      .cls-5, .cls-7 {
+        opacity: .4;
+      }
+
+      .cls-10 {
+        fill: #454545;
+      }
+
+      .cls-11, .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        font-family: Montserrat-Bold, Montserrat;
+        font-size: 26.89px;
+        font-weight: 700;
+      }
+
+      .cls-6, .cls-12 {
+        fill: #b32600;
+      }
+
+      .cls-13, .cls-7 {
+        fill: #282828;
+      }
+
+      .cls-2 {
+        stroke: #b32600;
+        stroke-width: .9px;
+      }
+
+      .cls-8 {
+        opacity: .05;
+      }
+    </style>
+    <pattern id="htA_6" data-name="htA 6" x="0" y="0" width=".7" height=".7" patternTransform="translate(2206.25 -5438.19) rotate(-12) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-11" cx=".35" cy=".35" r=".28"/>
+      </g>
+    </pattern>
+    <pattern id="htB_3" data-name="htB 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(2206.25 -5438.19) rotate(-12) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-11" cx=".35" cy=".35" r=".19"/>
+      </g>
+    </pattern>
+  </defs>
+  <ellipse class="cls-8" cx="57.78" cy="96.82" rx="31.02" ry="4.65"/>
+  <circle class="cls-2" cx="57.78" cy="96.82" r="20.16"/>
+  <text class="cls-6" transform="translate(47.23 106.13)"><tspan x="0" y="0">®</tspan></text>
+  <g>
+    <rect class="cls-13" x="36.98" y="14.19" width="29.99" height="11.37" rx="1.2" ry="1.2" transform="translate(-3 11.24) rotate(-12)"/>
+    <path class="cls-4" d="M37.3,17.18l26.99-5.74c.65-.14,1.29.28,1.42.92l1.87,8.78c.14.65-.28,1.29-.92,1.42l-26.99,5.74c-.65.14-1.29-.28-1.42-.92l-1.87-8.78c-.14-.65.28-1.29.92-1.42Z"/>
+    <rect class="cls-7" x="36.98" y="14.19" width="29.99" height="11.37" rx="1.2" ry="1.2" transform="translate(-3 11.24) rotate(-12)"/>
+    <rect class="cls-10" x="51.91" y="24.68" width="7.24" height="23.78" transform="translate(-6.39 12.34) rotate(-12)"/>
+    <rect class="cls-9" x="37.89" y="47.51" width="43.43" height="16.55" rx="1" ry="1" transform="translate(-10.3 13.61) rotate(-12)"/>
+    <path class="cls-3" d="M37.63,52l40.53-8.61c.54-.11,1.07.23,1.19.77l3.02,14.23c.11.54-.23,1.07-.77,1.19l-40.53,8.61c-.54.11-1.07-.23-1.19-.77l-3.02-14.23c-.11-.54.23-1.07.77-1.19Z"/>
+    <rect class="cls-5" x="37.89" y="47.51" width="43.43" height="16.55" rx="1" ry="1" transform="translate(-10.3 13.61) rotate(-12)"/>
+    <rect class="cls-12" x="39.94" y="63.33" width="43.43" height="4.14" rx=".4" ry=".4" transform="translate(-12.25 14.25) rotate(-12)"/>
+  </g>
+</svg>

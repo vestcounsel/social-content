@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        fill: #111;
+      }
+
+      .cls-6 {
+        stroke-width: .05px;
+      }
+
+      .cls-6, .cls-9 {
+        stroke: #222;
+      }
+
+      .cls-10 {
+        fill: url(#htC_3);
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-7, .cls-8, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34 {
+        isolation: isolate;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-32 {
+        opacity: .9;
+      }
+
+      .cls-11 {
+        fill: url(#htB_3);
+      }
+
+      .cls-12 {
+        fill: url(#htD_2);
+      }
+
+      .cls-13 {
+        fill: url(#htA_2);
+      }
+
+      .cls-14 {
+        fill: url(#htA_2-2);
+      }
+
+      .cls-15 {
+        fill: url(#htA_2-3);
+      }
+
+      .cls-16 {
+        fill: url(#htB_3-4);
+      }
+
+      .cls-17 {
+        fill: url(#htB_3-2);
+      }
+
+      .cls-18 {
+        fill: url(#htB_3-3);
+      }
+
+      .cls-19 {
+        fill: url(#htC_3-2);
+      }
+
+      .cls-20 {
+        fill: url(#htC_3-3);
+      }
+
+      .cls-21 {
+        fill: url(#htD_2-2);
+      }
+
+      .cls-7, .cls-26 {
+        opacity: .55;
+      }
+
+      .cls-8 {
+        opacity: .4;
+      }
+
+      .cls-35, .cls-22, .cls-23, .cls-24, .cls-25 {
+        fill: #1e1e1e;
+      }
+
+      .cls-22, .cls-29 {
+        opacity: .48;
+      }
+
+      .cls-23, .cls-31, .cls-34 {
+        opacity: .6;
+      }
+
+      .cls-24, .cls-30 {
+        opacity: .35;
+      }
+
+      .cls-25 {
+        opacity: .72;
+      }
+
+      .cls-2 {
+        stroke: #383838;
+        stroke-width: .2px;
+      }
+
+      .cls-26, .cls-27, .cls-36 {
+        fill: #b32600;
+      }
+
+      .cls-27 {
+        opacity: .42;
+      }
+
+      .cls-28 {
+        opacity: .7;
+      }
+
+      .cls-28, .cls-29, .cls-30, .cls-31, .cls-37 {
+        fill: #1a1a1a;
+      }
+
+      .cls-38, .cls-33, .cls-34 {
+        fill: #fff;
+      }
+
+      .cls-9 {
+        stroke-width: .05px;
+      }
+
+      .cls-9, .cls-4 {
+        stroke-miterlimit: 4;
+      }
+
+      .cls-39 {
+        fill: #0c0c0c;
+      }
+
+      .cls-3 {
+        stroke: #2a2a2a;
+        stroke-width: .1px;
+      }
+
+      .cls-4 {
+        stroke: #333;
+        stroke-width: .15px;
+      }
+
+      .cls-32 {
+        fill: #f5f2ed;
+      }
+
+      .cls-33 {
+        opacity: .3;
+      }
+    </style>
+    <pattern id="htA_2" data-name="htA 2" x="0" y="0" width=".7" height=".7" patternTransform="translate(3992.29 -515.49) rotate(-8) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-38" cx=".35" cy=".35" r=".29"/>
+      </g>
+    </pattern>
+    <pattern id="htB_3" data-name="htB 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(3992.29 -515.49) rotate(-8) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-38" cx=".35" cy=".35" r=".19"/>
+      </g>
+    </pattern>
+    <pattern id="htC_3" data-name="htC 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(3992.29 -515.49) rotate(-8) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-38" cx=".35" cy=".35" r=".11"/>
+      </g>
+    </pattern>
+    <pattern id="htD_2" data-name="htD 2" x="0" y="0" width=".7" height=".7" patternTransform="translate(3992.29 -515.49) rotate(-8) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-38" cx=".35" cy=".35" r=".05"/>
+      </g>
+    </pattern>
+    <pattern id="htA_2-2" data-name="htA 2" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htA_2"/>
+    <pattern id="htB_3-2" data-name="htB 3" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htB_3"/>
+    <pattern id="htC_3-2" data-name="htC 3" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htC_3"/>
+    <pattern id="htD_2-2" data-name="htD 2" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htD_2"/>
+    <pattern id="htB_3-3" data-name="htB 3" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htB_3"/>
+    <pattern id="htC_3-3" data-name="htC 3" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htC_3"/>
+    <pattern id="htA_2-3" data-name="htA 2" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htA_2"/>
+    <pattern id="htB_3-4" data-name="htB 3" patternTransform="translate(3376.5 627.5) scale(1 -1)" xlink:href="#htB_3"/>
+  </defs>
+  <g>
+    <rect class="cls-37" x="23.55" y="24.72" width="62.51" height="84.83" rx=".4" ry=".4" transform="translate(-8.81 8.28) rotate(-8)"/>
+    <polygon class="cls-13" points="17.95 29.49 79.85 20.79 82.96 42.89 21.06 51.59 17.95 29.49"/>
+    <rect class="cls-30" x="19.2" y="25.03" width="62.51" height="22.32" transform="translate(-4.55 7.37) rotate(-8)"/>
+    <polygon class="cls-11" points="21.06 51.59 82.96 42.89 86.07 65 24.17 73.7 21.06 51.59"/>
+    <rect class="cls-29" x="22.31" y="47.14" width="62.51" height="22.32" transform="translate(-7.59 8.02) rotate(-8)"/>
+    <polygon class="cls-10" points="24.17 73.7 86.07 65 89.17 87.11 27.27 95.81 24.17 73.7"/>
+    <rect class="cls-31" x="25.42" y="69.24" width="62.51" height="22.32" transform="translate(-10.64 8.67) rotate(-8)"/>
+    <polygon class="cls-12" points="27.27 95.81 89.17 87.11 91.66 104.79 29.76 113.49 27.27 95.81"/>
+    <rect class="cls-28" x="28.21" y="91.37" width="62.51" height="17.86" transform="translate(-13.38 9.25) rotate(-8)"/>
+    <rect class="cls-4" x="23.55" y="24.72" width="62.51" height="84.83" rx=".4" ry=".4" transform="translate(-8.81 8.28) rotate(-8)"/>
+    <rect class="cls-9" x="23.84" y="28.86" width="3.13" height="84.83" transform="translate(-9.67 4.23) rotate(-8)"/>
+    <rect class="cls-36" x="18.4" y="25.09" width="62.51" height="10.72" rx=".4" ry=".4" transform="translate(-3.75 7.21) rotate(-8)"/>
+    <polygon class="cls-11" points="17.95 29.49 79.85 20.79 80.54 25.65 18.64 34.35 17.95 29.49"/>
+    <rect class="cls-27" x="17.99" y="25.11" width="62.51" height="4.91" transform="translate(-3.36 7.12) rotate(-8)"/>
+  </g>
+  <g>
+    <rect class="cls-35" x="36.36" y="18.24" width="61.75" height="88.22" rx=".4" ry=".4"/>
+    <rect class="cls-14" x="36.36" y="18.24" width="61.75" height="22.05"/>
+    <rect class="cls-24" x="36.36" y="18.24" width="61.75" height="22.05"/>
+    <rect class="cls-17" x="36.36" y="40.3" width="61.75" height="22.05"/>
+    <rect class="cls-22" x="36.36" y="40.3" width="61.75" height="22.05"/>
+    <rect class="cls-19" x="36.36" y="62.35" width="61.75" height="22.05"/>
+    <rect class="cls-23" x="36.36" y="62.35" width="61.75" height="22.05"/>
+    <rect class="cls-21" x="36.36" y="84.4" width="61.75" height="22.05"/>
+    <rect class="cls-25" x="36.36" y="84.4" width="61.75" height="22.05"/>
+    <rect class="cls-2" x="36.36" y="18.24" width="61.75" height="88.22" rx=".4" ry=".4"/>
+    <rect class="cls-6" x="36.36" y="18.24" width="2.65" height="88.22"/>
+    <rect class="cls-36" x="36.36" y="18.24" width="61.75" height="12.35" rx=".4" ry=".4"/>
+    <rect class="cls-18" x="36.36" y="18.24" width="61.75" height="5.73"/>
+    <rect class="cls-27" x="36.36" y="18.24" width="61.75" height="5.73"/>
+    <rect class="cls-20" x="36.36" y="23.97" width="61.75" height="6.62"/>
+    <rect class="cls-26" x="36.36" y="23.97" width="61.75" height="6.62"/>
+    <rect class="cls-34" x="40.77" y="35.44" width="35.29" height="2.21" rx=".3" ry=".3"/>
+    <rect class="cls-33" x="40.77" y="39.41" width="48.52" height="1.76" rx=".3" ry=".3"/>
+    <rect class="cls-33" x="40.77" y="42.94" width="39.7" height="1.76" rx=".3" ry=".3"/>
+    <rect class="cls-5" x="40.77" y="49.12" width="52.93" height="30.88" rx=".4" ry=".4"/>
+    <rect class="cls-15" x="40.77" y="49.12" width="52.93" height="13.23"/>
+    <rect class="cls-8" x="40.77" y="49.12" width="52.93" height="13.23"/>
+    <rect class="cls-16" x="40.77" y="62.35" width="52.93" height="17.64"/>
+    <rect class="cls-7" x="40.77" y="62.35" width="52.93" height="17.64"/>
+    <rect class="cls-3" x="40.77" y="49.12" width="52.93" height="30.88" rx=".4" ry=".4"/>
+    <rect class="cls-32" x="40.77" y="87.05" width="17.64" height="11.91" rx=".2" ry=".2"/>
+    <rect class="cls-39" x="41.88" y="87.93" width=".88" height="8.82"/>
+    <rect class="cls-39" x="43.42" y="87.93" width=".44" height="8.82"/>
+    <rect class="cls-39" x="44.52" y="87.93" width=".88" height="8.82"/>
+    <rect class="cls-39" x="46.07" y="87.93" width=".44" height="8.82"/>
+    <rect class="cls-39" x="47.17" y="87.93" width=".66" height="8.82"/>
+    <rect class="cls-39" x="48.49" y="87.93" width=".88" height="8.82"/>
+    <rect class="cls-39" x="50.04" y="87.93" width=".44" height="8.82"/>
+    <rect class="cls-39" x="51.14" y="87.93" width=".66" height="8.82"/>
+    <rect class="cls-39" x="52.46" y="87.93" width=".44" height="8.82"/>
+    <rect class="cls-39" x="53.56" y="87.93" width=".88" height="8.82"/>
+    <rect class="cls-39" x="55.11" y="87.93" width=".44" height="8.82"/>
+    <rect class="cls-39" x="56.21" y="87.93" width=".66" height="8.82"/>
+  </g>
+</svg>

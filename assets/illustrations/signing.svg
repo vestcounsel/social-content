@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: none;
+      }
+
+      .cls-8 {
+        fill: url(#htC_3);
+      }
+
+      .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-6, .cls-18 {
+        isolation: isolate;
+      }
+
+      .cls-8, .cls-9, .cls-10, .cls-14 {
+        opacity: .9;
+      }
+
+      .cls-9 {
+        fill: url(#htB_3);
+      }
+
+      .cls-10 {
+        fill: url(#htA_2);
+      }
+
+      .cls-11 {
+        opacity: .25;
+      }
+
+      .cls-12 {
+        fill: #0c0c0c;
+        opacity: .22;
+      }
+
+      .cls-13 {
+        fill: url(#htC_3-3);
+      }
+
+      .cls-13, .cls-6 {
+        opacity: .7;
+      }
+
+      .cls-14 {
+        fill: url(#htC_3-2);
+      }
+
+      .cls-19 {
+        fill: #b09040;
+      }
+
+      .cls-20, .cls-18 {
+        fill: #f5f2ed;
+      }
+
+      .cls-21, .cls-15, .cls-16, .cls-17 {
+        fill: #1e1e1e;
+      }
+
+      .cls-15 {
+        opacity: .52;
+      }
+
+      .cls-16 {
+        opacity: .38;
+      }
+
+      .cls-17, .cls-18 {
+        opacity: .65;
+      }
+
+      .cls-2 {
+        stroke: #c8c0b4;
+        stroke-width: .15px;
+      }
+
+      .cls-22 {
+        fill: #fff;
+      }
+
+      .cls-23 {
+        fill: #2a2a2a;
+      }
+
+      .cls-24 {
+        fill: #c8a96e;
+      }
+
+      .cls-3 {
+        stroke: #333;
+        stroke-width: .15px;
+      }
+
+      .cls-3, .cls-5, .cls-6, .cls-7 {
+        stroke-miterlimit: 4;
+      }
+
+      .cls-4 {
+        stroke-width: .2px;
+      }
+
+      .cls-4, .cls-6 {
+        stroke: #b32600;
+      }
+
+      .cls-5 {
+        stroke: #b09040;
+      }
+
+      .cls-5, .cls-7 {
+        stroke-width: .1px;
+      }
+
+      .cls-6 {
+        stroke-linecap: round;
+        stroke-width: .3px;
+      }
+
+      .cls-7 {
+        stroke: #222;
+      }
+    </style>
+    <pattern id="htC_3" data-name="htC 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(2263.68 -4852.5) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-22" cx=".35" cy=".35" r=".11"/>
+      </g>
+    </pattern>
+    <pattern id="htA_2" data-name="htA 2" x="0" y="0" width=".7" height=".7" patternTransform="translate(-2346.91 -1183.76) rotate(38) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-22" cx=".35" cy=".35" r=".29"/>
+      </g>
+    </pattern>
+    <pattern id="htB_3" data-name="htB 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(-2346.91 -1183.76) rotate(38) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" width=".7" height=".7"/>
+        <circle class="cls-22" cx=".35" cy=".35" r=".19"/>
+      </g>
+    </pattern>
+    <pattern id="htC_3-2" data-name="htC 3" patternTransform="translate(-2346.91 -1183.76) rotate(38) scale(1 -1)" xlink:href="#htC_3"/>
+    <pattern id="htC_3-3" data-name="htC 3" patternTransform="translate(-2346.91 -1183.76) rotate(38) scale(1 -1)" xlink:href="#htC_3"/>
+  </defs>
+  <rect class="cls-11" x="20.14" y="43.55" width="37.83" height="50.44" rx=".6" ry=".6"/>
+  <rect class="cls-20" x="19.19" y="42.6" width="37.83" height="50.44" rx=".6" ry=".6"/>
+  <rect class="cls-8" x="19.19" y="67.82" width="37.83" height="12.61"/>
+  <rect class="cls-18" x="19.19" y="67.82" width="37.83" height="12.61"/>
+  <rect class="cls-2" x="19.19" y="42.6" width="37.83" height="50.44" rx=".6" ry=".6"/>
+  <rect class="cls-4" x="21.08" y="44.49" width="34.05" height="46.66" rx=".4" ry=".4"/>
+  <rect class="cls-12" x="22.97" y="73.65" width="29.95" height="1.1" rx=".29" ry=".29"/>
+  <rect class="cls-12" x="22.97" y="76.02" width="26.8" height="1.1" rx=".29" ry=".29"/>
+  <g>
+    <rect class="cls-21" x="53.71" y="56.19" width="40.98" height="5.04" rx="1.35" ry="1.35" transform="translate(-17.75 81.04) rotate(-52)"/>
+    <polygon class="cls-10" points="84.83 41.01 88.81 44.12 79.1 56.54 75.13 53.43 84.83 41.01"/>
+    <rect class="cls-16" x="74.09" y="46.25" width="15.76" height="5.04" transform="translate(-6.93 83.34) rotate(-52)"/>
+    <polygon class="cls-9" points="75.13 53.43 79.1 56.54 70.37 67.72 66.39 64.61 75.13 53.43"/>
+    <rect class="cls-15" x="65.66" y="58.05" width="14.19" height="5.04" transform="translate(-19.77 80.61) rotate(-52)"/>
+    <polygon class="cls-14" points="66.39 64.61 70.37 67.72 63.58 76.41 59.6 73.31 66.39 64.61"/>
+    <rect class="cls-17" x="59.47" y="67.99" width="11.03" height="5.04" transform="translate(-30.59 78.31) rotate(-52)"/>
+    <rect class="cls-3" x="53.71" y="56.19" width="40.98" height="5.04" rx="1.35" ry="1.35" transform="translate(-17.75 81.04) rotate(-52)"/>
+    <rect class="cls-24" x="64.86" y="55.47" width="28.37" height="1.26" rx=".3" ry=".3" transform="translate(-13.82 83.85) rotate(-52)"/>
+    <circle class="cls-19" cx="70.12" cy="67.52" r=".95"/>
+    <rect class="cls-24" x="62.52" y="69.73" width="2.21" height="5.04" rx=".2" ry=".2" transform="translate(-32.48 77.91) rotate(-52)"/>
+    <path class="cls-23" d="M60.96,71.57l-5.71,8.34,2.98,2.33,6.71-7.56-3.97-3.11Z"/>
+    <path class="cls-13" d="M60.96,71.57l-5.71,8.34,2.98,2.33,6.71-7.56-3.97-3.11Z"/>
+    <path class="cls-7" d="M60.96,71.57l-5.71,8.34,2.98,2.33,6.71-7.56-3.97-3.11Z"/>
+    <path class="cls-24" d="M55.25,79.91l-5.3,9.86h0l8.28-7.53-2.98-2.33Z"/>
+    <path class="cls-5" d="M55.6,80.99l-5.47,8.53"/>
+    <path class="cls-6" d="M49.94,89.77c-3.08,2.92-1.48-4.88-4.9-2.21-3.58,2.54,3.25-.31,0,2.48"/>
+  </g>
+</svg>

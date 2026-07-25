@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1 {
+        mask: url(#mask);
+      }
+
+      .cls-2 {
+        fill: #a0b0c8;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
+        isolation: isolate;
+      }
+
+      .cls-2, .cls-5, .cls-8, .cls-13 {
+        opacity: .7;
+      }
+
+      .cls-3 {
+        fill: #a8b8d0;
+      }
+
+      .cls-3, .cls-7, .cls-12 {
+        opacity: .9;
+      }
+
+      .cls-17 {
+        stroke-width: .2px;
+      }
+
+      .cls-17, .cls-18, .cls-19 {
+        fill: none;
+      }
+
+      .cls-17, .cls-18, .cls-19, .cls-20 {
+        stroke: gray;
+      }
+
+      .cls-18 {
+        stroke-width: .25px;
+      }
+
+      .cls-21 {
+        fill: #e8eef8;
+      }
+
+      .cls-4 {
+        fill: #b8c8e0;
+        opacity: .6;
+      }
+
+      .cls-5 {
+        fill: #d0dcea;
+      }
+
+      .cls-6, .cls-7 {
+        fill: #c8d4e8;
+      }
+
+      .cls-6, .cls-9, .cls-10, .cls-11, .cls-14 {
+        opacity: .8;
+      }
+
+      .cls-22, .cls-15, .cls-16 {
+        fill: #fff;
+      }
+
+      .cls-8 {
+        fill: #d8e4f4;
+      }
+
+      .cls-9 {
+        fill: #d4dff0;
+      }
+
+      .cls-10 {
+        fill: #90a4bc;
+      }
+
+      .cls-11 {
+        fill: #c0ccdc;
+      }
+
+      .cls-12 {
+        fill: #b0c0dc;
+      }
+
+      .cls-13 {
+        fill: #8898b0;
+      }
+
+      .cls-19 {
+        stroke-linecap: round;
+        stroke-width: .3px;
+      }
+
+      .cls-20 {
+        fill: #454545;
+        stroke-width: .12px;
+      }
+
+      .cls-14 {
+        fill: #b0c0d8;
+      }
+
+      .cls-15 {
+        opacity: .28;
+      }
+
+      .cls-16 {
+        opacity: .55;
+      }
+    </style>
+    <mask id="mask" x="-255.62" y="-.48" width="402.06" height="443.6" maskUnits="userSpaceOnUse">
+      <g id="imagine-text-gaps-qmi9vs">
+        <rect class="cls-22" x="-255.62" y="-.48" width="402.06" height="443.6"/>
+      </g>
+    </mask>
+  </defs>
+  <g class="cls-1">
+    <line class="cls-17" x1="54.11" y1="27.19" x2="54.11" y2="58.53"/>
+  </g>
+  <ellipse class="cls-20" cx="54.11" cy="27.19" rx="2.23" ry="2.44"/>
+  <polygon class="cls-18" points="54.11 59.75 66.03 68.7 71.24 84.17 66.03 99.63 54.11 104.52 42.2 99.63 36.99 84.17 42.2 68.7 54.11 59.75"/>
+  <line class="cls-19" x1="54.11" y1="59.75" x2="54.11" y2="56.49"/>
+  <line class="cls-19" x1="66.03" y1="68.7" x2="68.63" y2="66.26"/>
+  <line class="cls-19" x1="71.24" y1="84.17" x2="74.22" y2="84.17"/>
+  <line class="cls-19" x1="66.03" y1="99.63" x2="68.63" y2="102.08"/>
+  <line class="cls-19" x1="54.11" y1="104.52" x2="54.11" y2="107.77"/>
+  <line class="cls-19" x1="42.2" y1="99.63" x2="39.59" y2="102.08"/>
+  <line class="cls-19" x1="42.2" y1="68.7" x2="39.59" y2="66.26"/>
+  <polygon class="cls-21" points="54.11 65.45 62.3 71.15 64.54 81.73 59.32 91.49 48.9 91.49 43.69 81.73 45.92 71.15 54.11 65.45"/>
+  <polygon class="cls-7" points="54.11 59.75 62.3 68.7 54.11 65.45 54.11 59.75"/>
+  <polygon class="cls-12" points="54.11 59.75 45.92 68.7 54.11 65.45 54.11 59.75"/>
+  <polygon class="cls-6" points="71.24 84.17 64.54 81.73 66.03 68.7 71.24 84.17"/>
+  <polygon class="cls-9" points="36.99 84.17 43.69 81.73 42.2 68.7 36.99 84.17"/>
+  <polygon class="cls-8" points="54.11 65.45 62.3 71.15 59.32 91.49 54.11 65.45"/>
+  <polygon class="cls-11" points="54.11 65.45 45.92 71.15 48.9 91.49 54.11 65.45"/>
+  <polygon class="cls-4" points="54.11 65.45 64.54 81.73 59.32 91.49 54.11 65.45"/>
+  <polygon class="cls-5" points="54.11 65.45 43.69 81.73 48.9 91.49 54.11 65.45"/>
+  <polygon class="cls-3" points="59.32 91.49 48.9 91.49 54.11 104.52 59.32 91.49"/>
+  <polygon class="cls-10" points="64.54 81.73 59.32 91.49 54.11 104.52 66.03 99.63 64.54 81.73"/>
+  <polygon class="cls-14" points="43.69 81.73 48.9 91.49 54.11 104.52 42.2 99.63 43.69 81.73"/>
+  <polygon class="cls-13" points="66.03 68.7 64.54 81.73 54.11 104.52 71.24 84.17 66.03 68.7"/>
+  <polygon class="cls-2" points="45.92 68.7 43.69 81.73 54.11 104.52 36.99 84.17 45.92 68.7"/>
+  <polygon class="cls-16" points="54.11 63.01 57.84 66.67 54.11 65.45 50.39 66.67 54.11 63.01"/>
+  <polygon class="cls-15" points="49.65 69.52 52.62 67.89 54.11 65.45 51.51 71.96 49.65 69.52"/>
+</svg>

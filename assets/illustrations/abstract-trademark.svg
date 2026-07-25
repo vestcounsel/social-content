@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 135">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        fill: url(#htA_3);
+        opacity: .9;
+      }
+
+      .cls-5, .cls-6, .cls-7 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        stroke: gray;
+        stroke-width: .4px;
+      }
+
+      .cls-3 {
+        stroke: #b32600;
+        stroke-width: .7px;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-miterlimit: 4;
+      }
+
+      .cls-6 {
+        fill: #b32600;
+        font-family: Montserrat-BoldItalic, Montserrat;
+        font-size: 18.02px;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .cls-8 {
+        fill: #edeae3;
+      }
+
+      .cls-9, .cls-7 {
+        fill: #282828;
+      }
+
+      .cls-10 {
+        fill: #0c0c0c;
+      }
+
+      .cls-7 {
+        opacity: .4;
+      }
+
+      .cls-4 {
+        stroke: #0c0c0c;
+        stroke-width: .2px;
+      }
+    </style>
+    <pattern id="htA_3" data-name="htA 3" x="0" y="0" width=".7" height=".7" patternTransform="translate(3036.65 -4795.36) rotate(-8) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 .7 .7">
+      <g>
+        <rect class="cls-1" x="0" width=".7" height=".7"/>
+        <circle class="cls-10" cx=".35" cy=".35" r=".28"/>
+      </g>
+    </pattern>
+  </defs>
+  <g>
+    <path class="cls-9" d="M25.43,46.23l46.26-6.5,26.38,19.88,6.5,46.26c.37,2.64-.76,4.15-3.41,4.52l-65.43,9.2c-2.64.37-4.15-.76-4.52-3.41l-9.2-65.43c-.37-2.64.76-4.15,3.41-4.52Z"/>
+    <path class="cls-5" d="M25.43,46.23l46.26-6.5,26.38,19.88,6.5,46.26c.37,2.64-.76,4.15-3.41,4.52l-65.43,9.2c-2.64.37-4.15-.76-4.52-3.41l-9.2-65.43c-.37-2.64.76-4.15,3.41-4.52Z"/>
+    <path class="cls-7" d="M25.43,46.23l46.26-6.5,26.38,19.88,6.5,46.26c.37,2.64-.76,4.15-3.41,4.52l-65.43,9.2c-2.64.37-4.15-.76-4.52-3.41l-9.2-65.43c-.37-2.64.76-4.15,3.41-4.52Z"/>
+    <path class="cls-4" d="M25.43,46.23l46.26-6.5,26.38,19.88,6.5,46.26c.37,2.64-.76,4.15-3.41,4.52l-65.43,9.2c-2.64.37-4.15-.76-4.52-3.41l-9.2-65.43c-.37-2.64.76-4.15,3.41-4.52Z"/>
+    <circle class="cls-8" cx="35.03" cy="57.01" r="4.67"/>
+    <circle class="cls-10" cx="35.03" cy="57.01" r="2.34"/>
+    <circle class="cls-3" cx="67.81" cy="84.08" r="13.35"/>
+    <text class="cls-6" transform="translate(61.92 93) rotate(-8)"><tspan x="0" y="0">®</tspan></text>
+  </g>
+  <path class="cls-2" d="M36.45,45.06c-15.57-8.9-25.58-17.8-30.03-26.7"/>
+</svg>
