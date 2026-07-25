@@ -52,10 +52,9 @@
      Backgrounds: bg-ink  bg-red  bg-charcoal  bg-gray  bg-paper  bg-cream
      ======================================================================= -->
 
-<div class="slide bg-ink">
+<div class="slide bg-charcoal">
   <p class="bl-top wordmark">Vest Counsel</p>
-  <h1 class="bl-bot display">Lana Del Rey&rsquo;s
-IP Empire</h1>
+  <h1 class="bl-bot display">Top Founder Mistakes to Avoid</h1>
 </div>
 
 <script>
