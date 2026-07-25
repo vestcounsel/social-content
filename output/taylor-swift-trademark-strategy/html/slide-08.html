@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="file:///home/user/social-content/templates/">
+<meta charset="utf-8">
+<title>Vest Counsel closing slide</title>
+<link href="../assets/fonts/montserrat.css" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0c0c; --paper:#ffffff; --red:#b32600;
+    --gray:#808080; --charcoal:#282828; --cream:#edeae3;
+    --ml:88px;                 /* left and right margin */
+    --asc:0.968; --em:1.219;   /* Montserrat metrics, do not edit */
+  }
+  body{ margin:0; background:#f3f3f1; }
+
+  .slide{
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    font-family:'Montserrat',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .slide.bg-paper   { background:var(--paper);    color:var(--ink);   --bg:var(--paper);    --accent:var(--red);   }
+  .slide.bg-cream   { background:var(--cream);    color:var(--ink);   --bg:var(--cream);    --accent:var(--red);   }
+  .slide.bg-ink     { background:var(--ink);      color:var(--paper); --bg:var(--ink);      --accent:var(--paper); }
+  .slide.bg-charcoal{ background:var(--charcoal); color:var(--paper); --bg:var(--charcoal); --accent:var(--paper); }
+  .slide.bg-gray    { background:var(--gray);     color:var(--paper); --bg:var(--gray);     --accent:var(--paper); }
+  .slide.bg-red     { background:var(--red);      color:var(--paper); --bg:var(--red);      --accent:var(--paper); }
+
+  /* Baseline anchoring. .bl-top pins the first baseline, .bl-bot the last. */
+  .bl-top,.bl-bot{
+    position:absolute; left:var(--ml); right:var(--ml); margin:0;
+    font-size:calc(var(--fs) * 1px); line-height:var(--lh);
+    font-weight:700; white-space:pre;
+  }
+  .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
+  .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
+
+  .headline{ --fs:92.5; --lh:1.137; --bl:403.3; }
+  .subheading{ --fs:36; --lh:1; --bl:478.9; letter-spacing:.076em;
+             text-transform:uppercase; color:var(--accent); }
+  .phone   { --fs:24; --lh:1; --bl:519.7; letter-spacing:.058em; color:var(--accent); }
+  .email   { --fs:24; --lh:1; --bl:560.7; letter-spacing:.058em; color:var(--accent);
+             text-decoration:none; }
+  .web     { --fs:24; --lh:1; --bl:601.7; letter-spacing:.058em; color:var(--accent);
+             text-decoration:none; }
+
+  /* Cat: 465 x 677, on the right margin, 138 up from the bottom.
+     LOCKED BRAND ASSET: the cat renders identically on every
+     background. It may only be positioned or uniformly scaled —
+     never recolored, inverted, outlined, masked, or filtered.    */
+  .cat{ position:absolute; right:var(--ml); bottom:138px; width:465px; height:677px; }
+  .cat .cls-2{ fill:#0c0c0c; }
+  .cat .cls-1{ fill:#ffffff; }
+</style>
+</head>
+<body>
+
+<!-- =======================================================================
+     EDIT HERE.
+     Backgrounds:  bg-paper  bg-cream  bg-ink  bg-charcoal  bg-gray  bg-red
+     Never indent a continuation line.
+     ======================================================================= -->
+
+<div class="slide bg-paper" data-template="closing" data-cta-key="swift-strategy">
+
+  <h1 class="bl-bot headline">Build your filing plan</h1>
+
+  <p class="bl-top subheading">Start with the core mark</p>
+  <p class="bl-top phone">+1 888 VEST-599</p>
+  <a class="bl-top email" href="mailto:hello@vestcounsel.com">hello@vestcounsel.com</a>
+  <a class="bl-top web" href="https://www.vestcounsel.com">www.vestcounsel.com</a>
+
+  <!-- artwork, nothing to edit below this line -->
+    <svg class="cat" viewBox="0 0 1302.97 1894.9" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M270.79,192.95l-35.75,16.71c2.3-69.31,4.6-138.61,5.01-205.87,65.29,35.04,120.55,87.22,158.2,149.39-55.78,14.65-110.12,31.67-127.45,39.77h-.01Z"/>
+      <path d="M622.53,189.94l36.25,15.69c-4.41-69.21-8.82-138.42-11.29-205.63-64.19,36.88-117.83,90.6-153.57,153.81,56.19,13.06,111.05,28.53,128.61,36.13"/>
+      <path d="M674.05,1721.28c172.31-28.41,311.28-186.53,311.87-354.87.75-214.69-193.99-405.97-159.21-618.03,21.38-130.33,138.85-240.46,274.73-257.56,50.09-6.3,103.86-.21,145.33,27.57,41.47,27.8,66.94,80.49,51.79,126.9s-77.18,75.81-120.77,51.21c-21.18-11.95-34.97-33.33-55.34-46.52-45.58-29.52-113.13-6.57-142.1,38.36-28.98,44.94-25.89,103.37-7.5,153.2s50.33,93.77,78.02,139.45c98.33,162.19,143.95,364.39,75.06,540.1-68.88,175.7-273.69,305.82-462.02,256.9-15.51-4.03-32.11-10.26-39.63-23.91s2.56-25.05,49.76-32.83v.02Z"/>
+      <path d="M564.6,1836.5c-52.64,4.84-101.06,5.8-145.66,3.45-3.33,3.51-6.72,7.01-10.36,10.28-40.95,37.55-104.01,57.7-155.58,35.32-27.44-11.86-47.17-38.29-53.65-66.29-12.38,22.99-31.09,42.4-55.15,53.89-46.04,22.02-109.79,7.98-134.86-35.26-16.52-28.54-10.04-66.52,10.86-91.2,17.27-20.38,8.54-95.62,5.9-113.46-31.34-211.08-4.09-531.14,135.61-909.02,16.33-44.21,29.14-89.51,35.3-135.12,3.27-24.25,4.64-48.63,3.58-72.94-1.02-26.81-5.19-53.4-12.44-79.23-35.18-124.41-28.33-294.36,193.2-340.13,107.6-22.25,233.28,4.9,292.82,94.05,58.67,87.88,22.67,208.53-.94,301.74-7.34,28.85-13.5,55.09-15.27,76.93-.13,1.46-.19,2.84-.25,4.3-12.5,190.39,184.1,383.5,242.76,687.41,57.97,300.65-75.62,551.45-335.91,575.28h.02Z"/>
+      <path d="M225.77,302.48c-1.92-2.44-5.09-3.27-7.6-4.9-31.25-16.45-62.84-32.34-95.2-46.24-6.88-3.33-11.69,7.5-4.8,10.93,28.91,12.21,56.94,26.66,85.05,40.79,5.19,2.74,10.34,5.53,15.47,8.38,1.41.69,3.05.76,4.51.2,3.48-1.27,4.8-6.05,2.57-9.17"/>
+      <path d="M193.07,329.74c-31.05.62-62.58-1.98-93.4.09-6.15,2.39-3.7,11.97,2.91,11.48,34.71-.19,69.41.47,104.11.71,4.41.04,10.8,1.53,12.56-3.71,3.46-12.47-18.79-7.35-26.19-8.57h.01Z"/>
+      <path d="M267.15,346.56c-33.24,14.35-71.71,30.32-102.32,36.29-17.51,4.41-35.65,6.79-53.07,11.14-5.95,2.81-2.8,12.2,3.78,11.24,42.86-7.91,85.81-16.85,125.63-34.57,10.25-4.25,20.48-8.5,30.68-12.87,1.5-.57,2.72-1.71,3.4-3.17,2.35-4.71-3.09-10.17-8.1-8.05"/>
+      <path d="M758.7,250.97c-4.64-3.7-9.57,1.09-13.69,3.26-29.86,19.42-57.39,30.5-89.23,49.47-9.46,3.53-4.09,16.21,4.87,11.31,32.43-19.4,63.89-32.77,97.72-54.45,2.71-1.87,3.4-5.57,1.53-8.28-.33-.49-.74-.92-1.2-1.28h0Z"/>
+      <path d="M762.2,316.79c-24.67.04-49.52-.57-73.98,3.1-4.24,1.04-10.74.38-12.09,5.46-1.53,3.92,2.4,8.34,6.66,7.75,28.04-5.98,57.29-2.77,85.4-5.05,7.2-4.29,1.65-13.03-5.98-11.26"/>
+      <path d="M767.95,377.08c-.71-.53-3.72-.62-5.19-.6-20.56-1.75-36.44-12.67-60.18-13.18-10.03-.52-20.08-.68-30.12-.47-3.91.36-8.8-1.08-11.63,2.25-3.57,3.9.06,10.54,5.44,9.88,21.77-.15,35.52-1.01,55.52,3.36,9.93,1.92,20.23,7.73,34.02,9.65,4.05.15,8.67,1.53,12.47-.12,4.57-2.01,4.24-8.89-.31-10.77h-.01Z"/>
+      <path class="cls-1" d="M414.59,272.23c0,34.23-28.82,61.99-64.38,61.99s-64.38-27.75-64.38-61.99,28.82-61.99,64.38-61.99,64.38,27.75,64.38,61.99"/>
+      <path d="M390.86,272.23c0,21.63-18.21,39.15-40.65,39.15s-40.65-17.53-40.65-39.15,18.21-39.15,40.65-39.15,40.65,17.53,40.65,39.15"/>
+      <path class="cls-1" d="M601.35,272.23c0,34.23-28.82,61.99-64.38,61.99s-64.38-27.75-64.38-61.99,28.82-61.99,64.38-61.99,64.38,27.75,64.38,61.99"/>
+      <path d="M577.62,272.23c0,21.63-18.21,39.15-40.65,39.15s-40.65-17.53-40.65-39.15,18.21-39.15,40.65-39.15,40.65,17.53,40.65,39.15"/>
+      <path d="M265.17,141.6c4.93-33.05,3.91-66.91-3-99.64,28.45,14.93,52.43,37.66,68.38,64.81-21.11,12.39-42.22,24.79-65.38,34.82h0Z"/>
+      <path d="M623.25,133.61c-3.37-33.33-.77-66.99,7.68-99.4-29.13,13.68-54.14,35.34-71.35,61.76,20.5,13.3,41.02,26.6,63.68,37.63h0Z"/>
+      <path class="cls-2" d="M598.4,1650.66c-6.18-2.29-13.03,1.26-18.96,3.03-4.37,1.22-19.73-.27-29.52,1.8-13.08,1.84-25.19,7.08-37.03,12.52-44.21,19.2-68.49,64.04-74.46,108.74-2.38,15.66-2.93,31.47-3.7,47.24.17,3.91-1.69,8.61,1.47,11.74,3.71,3.77,10.89.96,10.72-4.28.88-62.73,11.63-125.17,70.92-152.36,11.43-5.77,28.08-11.61,38.15-12.29,8.13-1.01,16.37.04,24.48-.86,5.46-1.58,13.94-4.55,14.76-4.01,6.19.2,8.63-8.38,3.17-11.27h-.01Z"/>
+      <path class="cls-2" d="M714.1,1164.53c-6.78,1.56-12.52,6.49-19,9.08-17.86,9.51-35.91,18.95-52.24,30.82-36.34,30.76-74.29,63.5-95.72,106.01-13.53,32.17-19,67.22-20.07,101.77-.15,25.24,3.73,50.27,5.28,75.43,3.53,32.84,8.78,66.07,21.58,96.86,8.17,18.53,18.22,36.28,29.22,53.39,3.67,5.67,7.69,11.11,11.63,16.6.85,1.38,2.19,2.37,3.75,2.78,5.2,1.48,10-4.38,7.1-8.88-19.66-27.09-36.73-56.43-45.92-84.03-12.6-39.96-14.2-73.53-18.15-114.36-5.35-45.89,1.23-96.28,16.41-133.45,13.74-28.83,32.7-46.89,56.05-70.29,19.85-18.53,34.66-33.11,57.02-45.56,11.94-6.75,23.89-13.49,36.21-19.56,4.25-2.89,10.9-3.93,12.89-8.95,1.14-3.7-2.03-7.72-6.05-7.66"/>
+      <path class="cls-2" d="M296.36,1115.07c-2.87-2.65-7.96-1.88-9.82,1.55-1.28,2.45-.66,5.38-.91,8.03-.75,42.58-8.01,78.97-12.78,122.96-5.66,52.7-9.2,97.22-15.26,149.12-2.72,31.79-2.61,63.62-2.38,95.47-1.95,31.08-1.72,62.18-2.01,93.28-1.74,23.24-7.72,54.92-15.93,82.05-3.53,11.26-7.37,22.42-11.13,33.61-.6,2.41.39,4.93,2.48,6.28,3.34,2.58,8.88.59,9.75-3.46,14-39.22,24.92-79.79,27.52-121.32.09-28.79-.17-57.58,1.75-86.34.79-19.26-.72-38.53.24-57.78,1.63-56.61,10.99-108.91,14.76-167.84,3.52-35.4,12.66-89.2,14.96-130.95.41-6.81.49-13.62.75-20.43-.06-1.62-.78-3.14-1.99-4.22h.02Z"/>
+      <path class="cls-2" d="M505.34,1158.65c-1.39-4.87-3.62-9.46-5.18-14.29-.69-2.38-2.76-4.1-5.22-4.33-13.73.38-2.98,15.22-1.65,22.1,4.03,33.62,3.14,96.11-.09,129.49-3.65,23.14-5.54,47.19-8.46,65.95-4.58,25.24-9.94,50.37-13.27,75.8-6.91,45.42-9.16,93.47-19.83,139.63-5.82,27.74-8.55,56.05-16.74,83.32-5.67,23.8-12.57,55.12-20.69,72.55-12.98,23.91-22.15,49.86-27.87,76.12.53,6.23,10.68,7.08,12.22.81,4.02-13.32,11.43-39.37,14.7-46.77,8.16-17.01,17.2-33.62,21.91-51.93,6.88-25.83,13.24-51.8,19.08-77.89,4.23-21.41,6.7-43.11,12.07-64.32,7.28-35.19,9.78-76.76,14.63-106.97,3.53-38.48,13.76-78.27,19.03-120.42,2.42-25.85,6.37-43.37,7.57-69.46.71-36.39,2.61-73.21-2.23-109.37"/>
+      <path class="cls-2" d="M673.26,492.57c-7.34,28.85-13.5,55.09-15.27,76.93-.13,1.46-.19,2.84-.25,4.3-143.02,58.19-309.21,63.74-460.71,15.3,3.27-24.25,4.64-48.63,3.58-72.94,151.63,55.52,327.81,46.87,472.65-23.59"/>
+      <path class="cls-2" d="M447.1,382.72c-.03-3.02.04-6.03.2-9.04,0-.44-.31-.88-.83-1.18-1.66-1.04-4.89-.26-4.81,1.18-.58,10.02.33,20.04.12,30.06.11,10.78-1.36,21.64-1.11,32.37,1.01,1.66,5.5,1.13,5.39-.64,1.08-17.58,1.76-35.15,1.04-52.74h0Z"/>
+      <path d="M421.8,345.74c13.05-2.8,26.55-2.88,39.63-.24,3.61.65,6,4.1,5.36,7.7-.18.98-.57,1.9-1.15,2.71-6.23,8.53-11.7,17.59-16.35,27.07-1.75,3.5-6.01,4.91-9.51,3.15-.95-.48-1.78-1.16-2.43-2-6.96-9.2-13.62-18.62-19.97-28.26-2.57-3.94-.3-9.12,4.43-10.14h-.01Z"/>
+    </svg>
+
+</div>
+
+<script>
+/* Direct preview: if the {{...}} placeholders were never replaced,
+   fall back to a sample CTA so the file still renders on its own.
+   Tokens are split so the generator's replacement never touches them. */
+(function(){
+  const ph = name => '{{' + name + '}}';
+  const slide = document.querySelector('.slide');
+  const headline = document.querySelector('.headline');
+  const subheading = document.querySelector('.subheading');
+  if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-paper';
+  if (slide.dataset.ctaKey === ph('CTA_KEY')) slide.dataset.ctaKey = 'ip-empire';
+  if (headline.textContent === ph('CTA_HEADING')) headline.textContent = 'Ready to build\nyour IP empire?';
+  if (subheading.textContent === ph('CTA_SUBHEADING')) subheading.textContent = 'Start building today';
+  /* Injected copy may carry "\n" as two characters; turn them into real
+     newlines so multiline headings keep working under white-space:pre. */
+  for (const el of [headline, subheading]){
+    if (el.textContent.indexOf('\\n') !== -1){
+      el.textContent = el.textContent.split('\\n').join('\n');
+    }
+  }
+})();
+
+/* Auto-fit: shrinks a line only if it would cross the margin.
+   Set lock to a number to force one fixed size on every slide. */
+const FIT = [
+  { sel:'.headline', max:92.5, min:60, lock:null },
+  { sel:'.subheading', max:36, min:24, lock:null }
+];
+
+function widestLine(el, fs){
+  const cs = getComputedStyle(el);
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
+    `font:${cs.fontWeight} ${fs}px Montserrat,sans-serif;` +
+    `letter-spacing:${cs.letterSpacing};text-transform:${cs.textTransform};`;
+  document.body.appendChild(probe);
+  let w = 0;
+  for (const line of el.textContent.split('\n')){
+    probe.textContent = line;
+    w = Math.max(w, probe.getBoundingClientRect().width);
+  }
+  probe.remove();
+  return w;
+}
+
+document.fonts.ready.then(() => {
+  for (const role of FIT){
+    document.querySelectorAll(role.sel).forEach(el => {
+      if (role.lock){ el.style.setProperty('--fs', role.lock); return; }
+      const longest = widestLine(el, role.max);
+      if (!longest) return;
+      const fs = Math.min(role.max, role.max * el.clientWidth / longest);
+      el.style.setProperty('--fs', Math.max(role.min, Math.floor(fs * 2) / 2));
+    });
+  }
+});
+</script>
+
+</body>
+</html>
