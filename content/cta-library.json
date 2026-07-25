@@ -62,5 +62,21 @@
   "swift-dead": {
     "heading": "Dead is not available",
     "subheading": "Get a clearance review"
+  },
+  "minaj-universe": {
+    "heading": "Map your brand universe",
+    "subheading": "Schedule a consultation"
+  },
+  "minaj-strategy": {
+    "heading": "File where you sell",
+    "subheading": "Plan your next filing"
+  },
+  "minaj-abandoned": {
+    "heading": "Verify before you adopt",
+    "subheading": "Reach out today"
+  },
+  "minaj-dead": {
+    "heading": "Read the whole record",
+    "subheading": "Get a clearance review"
   }
 }
