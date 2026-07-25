@@ -5,7 +5,8 @@
   "description": "CSV-driven HTML-to-PNG carousel generator for Vest Counsel social posts",
   "scripts": {
     "generate": "node scripts/generate.js",
-    "preview": "node scripts/generate.js --preview"
+    "preview": "node scripts/generate.js --preview",
+    "watch": "node scripts/watch.js"
   },
   "dependencies": {
     "csv-parse": "^5.5.6",

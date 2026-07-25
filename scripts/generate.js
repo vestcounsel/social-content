@@ -401,8 +401,12 @@ async function main() {
     }
   }
 
-  fs.rmSync(RENDER_DIR, { recursive: true, force: true });
+  // Empty the render directory rather than removing it: deleting the
+  // directory itself can hit transient ENOTEMPTY races on overlayfs.
   fs.mkdirSync(RENDER_DIR, { recursive: true });
+  for (const entry of fs.readdirSync(RENDER_DIR)) {
+    fs.rmSync(path.join(RENDER_DIR, entry), { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  }
 
   const jobs = [];
   for (const [postId, postRows] of carousels) {
