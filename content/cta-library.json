@@ -94,5 +94,9 @@
   "bey-dead": {
     "heading": "Statuses are not verdicts",
     "subheading": "Get a clearance review"
+  },
+  "clearance-search": {
+    "heading": "Clear the name first",
+    "subheading": "Schedule a clearance search"
   }
 }
