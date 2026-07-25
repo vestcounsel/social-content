@@ -68,7 +68,6 @@
 
 <div class="slide {{BACKGROUND}}" data-template="middle">
 
-  <p class="bl-top eyebrow">{{SLIDE_NUMBER}}</p>
   <div class="rule r-top"></div>
 
   <h2 class="bl-bot title">{{HEADING}}</h2>
@@ -90,12 +89,10 @@
 (function(){
   const ph = name => '{{' + name + '}}';
   const slide = document.querySelector('.slide');
-  const number = document.querySelector('.eyebrow');
   const heading = document.querySelector('.title');
   const body = document.querySelector('.body');
   const art = document.querySelector('.illustration');
   if (slide.className.indexOf(ph('BACKGROUND')) !== -1) slide.className = 'slide bg-cream';
-  if (number.textContent === ph('SLIDE_NUMBER')) number.textContent = '01';
   if (heading.textContent === ph('HEADING')) heading.textContent = 'Use the correct\nlegal entity name';
   if (body.textContent === ph('BODY')) body.textContent = 'The agreement should identify the exact company entering into the contract.';
   if (art.getAttribute('src') === ph('ILLUSTRATION_SRC')){

@@ -5,8 +5,9 @@
  *                      ->  Playwright Chromium  ->  output/YYYY-MM/post-id/slide-NN.png
  *
  * Usage:
- *   node scripts/generate.js             render PNGs
- *   node scripts/generate.js --preview   write rendered HTML only, skip Chromium
+ *   node scripts/generate.js                 render PNGs
+ *   node scripts/generate.js --preview       write rendered HTML only, skip Chromium
+ *   node scripts/generate.js --post <id>     render a single post_id only
  */
 
 'use strict';
@@ -30,6 +31,10 @@ const HEIGHT = 1350;
 const BACKGROUNDS = ['bg-paper', 'bg-cream', 'bg-ink', 'bg-charcoal', 'bg-gray', 'bg-red'];
 
 const PREVIEW = process.argv.includes('--preview');
+const POST_FILTER = (() => {
+  const i = process.argv.indexOf('--post');
+  return i !== -1 ? process.argv[i + 1] : null;
+})();
 
 function fail(message) {
   console.error(`\nERROR: ${message}\n`);
@@ -172,14 +177,15 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
   const first = rows[0];
   const slides = [];
 
+  // cover_subtitle may still exist in the CSV as a legacy column; it is
+  // deliberately never rendered.
   slides.push({
     name: 'cover',
     html: fillTemplate(templates.cover, {
       BACKGROUND: first.cover_background,
       TITLE: escapeHtml(toMultiline(first.cover_title)),
-      SUBTITLE: escapeHtml(toMultiline(first.cover_subtitle || '')),
     }),
-    checks: ['.display', '.subtitle'],
+    checks: ['.display'],
   });
 
   const middles = [...rows].sort((a, b) => Number(a.slide_number) - Number(b.slide_number));
@@ -187,17 +193,17 @@ function buildSlides(postId, rows, templates, ctaLibrary) {
     const src = row.middle_illustration
       ? pathToFileURL(resolveImage(row.middle_illustration)).href
       : '';
+    // slide_number is an internal ordering field only; it is never rendered.
     slides.push({
       name: `middle ${row.slide_number}`,
       html: fillTemplate(templates.middle, {
         BACKGROUND: row.middle_background,
-        SLIDE_NUMBER: pad2(Number(row.slide_number)),
         HEADING: escapeHtml(toMultiline(row.middle_heading)),
         BODY: escapeHtml(toMultiline(row.middle_body)),
         ILLUSTRATION_SRC: escapeHtml(src),
         ILLUSTRATION_ALT: escapeHtml(row.middle_alt || ''),
       }),
-      checks: ['.eyebrow', '.title', '.body', '.illustration'],
+      checks: ['.title', '.body', '.illustration'],
     });
   }
 
@@ -287,6 +293,16 @@ async function main() {
 
   for (const [postId, postRows] of carousels) {
     validateCarousel(postId, postRows, ctaLibrary);
+  }
+
+  if (POST_FILTER) {
+    if (!carousels.has(POST_FILTER)) {
+      fail(`--post "${POST_FILTER}" does not match any post_id in the CSV. ` +
+           `Known posts: ${[...carousels.keys()].join(', ')}.`);
+    }
+    for (const id of [...carousels.keys()]) {
+      if (id !== POST_FILTER) carousels.delete(id);
+    }
   }
 
   fs.rmSync(RENDER_DIR, { recursive: true, force: true });
