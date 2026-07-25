@@ -25,17 +25,20 @@
   .slide.bg-gray    { background:var(--gray);     color:var(--paper); --bg:var(--gray);     --accent:var(--paper); }
   .slide.bg-red     { background:var(--red);      color:var(--paper); --bg:var(--red);      --accent:var(--paper); }
 
-  /* Baseline anchoring. .bl-top pins the first baseline. */
-  .bl-top{
+  /* Baseline anchoring. .bl-top pins the first baseline, .bl-bot the last. */
+  .bl-top,.bl-bot{
     position:absolute; left:var(--ml); right:var(--ml); margin:0;
     font-size:calc(var(--fs) * 1px); line-height:var(--lh);
     font-weight:700; white-space:pre;
-    top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px);
   }
+  .bl-top{ top:calc((var(--bl) - ((var(--lh) - var(--em))/2 + var(--asc)) * var(--fs)) * 1px); }
+  .bl-bot{ bottom:calc((1350 - (var(--bl) + ((var(--lh) - var(--em))/2 + 0.251) * var(--fs))) * 1px); }
 
   /* Hierarchy: title above the divider, divider, stacked content below,
-     image only after all text. The title takes the accent red. */
-  .title{ --fs:40; --lh:1; --bl:375.6; letter-spacing:.083em; color:var(--accent); }
+     image only after all text. The title takes the accent red. Its LAST
+     baseline is pinned, so multiline titles grow upward and always stay
+     clear of the divider. */
+  .title{ --fs:40; --lh:1.35; --bl:375.6; letter-spacing:.083em; color:var(--accent); }
 
   .rule{ position:absolute; left:var(--ml); width:514px; height:1px;
          background:currentColor; opacity:.18; }
@@ -73,7 +76,7 @@
 
 <div class="slide {{BACKGROUND}}" data-template="middle">
 
-  <p class="bl-top title">{{HEADING}}</p>
+  <p class="bl-bot title">{{HEADING}}</p>
   <div class="rule r-top"></div>
 
   <div class="content">
@@ -131,7 +134,8 @@ function widestLine(el, fs){
   const cs = getComputedStyle(el);
   const probe = document.createElement('span');
   probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
-    `font:${cs.fontWeight} ${fs}px Montserrat,sans-serif;letter-spacing:${cs.letterSpacing};`;
+    `font:${cs.fontWeight} ${fs}px Montserrat,sans-serif;` +
+    `letter-spacing:${cs.letterSpacing};text-transform:${cs.textTransform};`;
   document.body.appendChild(probe);
   let w = 0;
   for (const line of el.textContent.split('\n')){

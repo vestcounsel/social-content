@@ -88,7 +88,8 @@ function widestLine(el, fs){
   const cs = getComputedStyle(el);
   const probe = document.createElement('span');
   probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;' +
-    `font:700 ${fs}px Montserrat,sans-serif;letter-spacing:${cs.letterSpacing};`;
+    `font:700 ${fs}px Montserrat,sans-serif;` +
+    `letter-spacing:${cs.letterSpacing};text-transform:${cs.textTransform};`;
   document.body.appendChild(probe);
   let w = 0;
   for (const line of el.textContent.split('\n')){
